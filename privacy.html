@@ -17,20 +17,26 @@
 <p>Esta política describe cómo la aplicación <strong>Hermes Agent</strong> («la
 aplicación») accede, usa, almacena y comparte datos de usuario de Google. La
 aplicación es una instancia personal, de uso no comercial, que su titular ejecuta
-en su propia computadora y usa exclusivamente sobre su propia cuenta de Google.</p>
+en su propia computadora. Accede únicamente a las cuentas de Google que la hayan
+autorizado: la de su titular y, cuando corresponda, la de una persona que haya dado
+su consentimiento expreso. Cada instancia se autoriza por separado.</p>
 
 <h2>1. Qué datos de Google se acceden</h2>
 
 <ul>
-  <li><strong>Gmail</strong> — mensajes, encabezados, etiquetas y adjuntos de la cuenta del titular.</li>
-  <li><strong>Google Drive</strong> — archivos y carpetas de la cuenta del titular.</li>
-  <li><strong>Google Docs y Sheets</strong> — documentos y planillas de la cuenta del titular.</li>
-  <li><strong>Google Calendar</strong> — eventos y calendarios de la cuenta del titular.</li>
-  <li><strong>Contactos</strong> — contactos de la cuenta del titular (solo lectura).</li>
+  <li><strong>Gmail</strong> — mensajes, encabezados, etiquetas y adjuntos de la cuenta autorizada.</li>
+  <li><strong>Google Drive</strong> — archivos y carpetas de la cuenta autorizada.</li>
+  <li><strong>Google Docs y Sheets</strong> — documentos y planillas de la cuenta autorizada.</li>
+  <li><strong>Google Calendar</strong> — eventos y calendarios de la cuenta autorizada.</li>
+  <li><strong>Contactos</strong> — contactos de la cuenta autorizada (solo lectura).</li>
 </ul>
 
-<p>La aplicación accede únicamente a los datos de la cuenta que la autorizó. No
-accede a datos de terceros.</p>
+<p>La aplicación accede únicamente a los datos de las cuentas que la autorizaron.
+No accede a datos de otras cuentas.</p>
+
+<p>Además del acceso por las APIs de Google, el correo de la cuenta autorizada puede
+leerse y enviarse por IMAP/SMTP con una contraseña de aplicación de esa misma cuenta.
+Esta política se aplica a los datos de Google con independencia del canal usado.</p>
 
 <h2>2. Cómo se usan esos datos</h2>
 
@@ -39,26 +45,52 @@ al agente en su propio equipo: buscar y resumir correo, responder mensajes,
 mover o etiquetar conversaciones, leer y crear archivos, editar documentos y
 planillas, y gestionar eventos de calendario.</p>
 
-<p>No se usan para publicidad, no se venden, y no se emplean para entrenar modelos
-de aprendizaje automático propiedad de la aplicación. Los datos pueden enviarse a
-un proveedor de modelo de lenguaje para generar la respuesta solicitada por el
-titular; ese procesamiento se rige por Google&nbsp;API Services User Data Policy,
-incluidos sus requisitos de uso limitado (Limited Use).</p>
+<p>No se usan para publicidad, no se venden ni se ceden, y no se usan para
+determinar solvencia ni con fines de préstamo. Toda acción que envíe, comparta o
+elimine datos requiere una instrucción explícita del titular para esa acción.</p>
 
-<h2>3. Cómo se almacenan</h2>
+<h2>3. Uso limitado y modelos de inteligencia artificial</h2>
+
+<p><strong>El uso de la información recibida de los scopes de Google Workspace se
+ajusta a la Google API Services User Data Policy, incluidos los requisitos de uso
+limitado (Limited Use).</strong></p>
+
+<p>La aplicación <strong>no</strong> usa ni retiene datos obtenidos a través de las
+APIs de Google Workspace para desarrollar, mejorar ni entrenar modelos de
+inteligencia artificial o de aprendizaje automático, sean generalistas o
+personalizados, ni autoriza a terceros a hacerlo.</p>
+
+<p>Cuando una tarea requiere generar texto (por ejemplo resumir un correo, redactar
+una respuesta o analizar un documento), el contenido necesario se transmite a un
+proveedor externo de inferencia —OpenRouter (<a href="https://openrouter.ai">openrouter.ai</a>)
+y el proveedor de modelo que atiende la consulta— con el único fin de generar esa
+respuesta. Las consultas se enrutan exclusivamente a proveedores que, según la
+información de políticas publicada por OpenRouter, <strong>no entrenan con los
+datos</strong> enviados. OpenRouter no conserva los prompts ni las respuestas salvo
+que su titular active voluntariamente el registro; la aplicación no lo activa.
+El envío a ese proveedor es la única transferencia de datos a un tercero y se
+limita a lo aquí declarado, con el consentimiento del titular.</p>
+
+<h2>4. Cómo se almacenan</h2>
 
 <p>Los datos se procesan localmente en el equipo del titular. La aplicación guarda
-únicamente el token de autorización de OAuth2, con permisos de sistema restringidos
-al propio usuario, en el disco de ese equipo. No se mantiene una copia en la nube
-propiedad de la aplicación ni en servidores de terceros gestionados por ella.</p>
+únicamente el token de autorización OAuth2, con permisos de sistema restringidos al
+propio usuario (modo 600), en el disco de ese equipo. No se mantiene una copia en
+la nube propiedad de la aplicación ni en servidores gestionados por ella.</p>
 
-<h2>4. Con quién se comparten</h2>
+<p>El agente conserva además, en ese mismo equipo, un registro local de las
+conversaciones y archivos auxiliares, que puede contener fragmentos de los datos
+procesados. Ese registro no sale del equipo del titular y puede eliminarse desde él.
+Se recomienda mantener el cifrado de disco activado.</p>
 
-<p>No se comparten datos de usuario de Google con terceros. No hay venta,
-transferencia ni cesión de datos. La aplicación no usa los datos para fines
-distintos de los descritos en el punto 2.</p>
+<h2>5. Con quién se comparten</h2>
 
-<h2>5. Conservación y eliminación</h2>
+<p>No se venden, licencian ni ceden datos de usuario de Google. No se usan con fines
+distintos de los descritos en los puntos 2 y 3. La única transmisión a un tercero es
+la consulta al proveedor de inferencia descrita en el punto 3, necesaria para
+generar la respuesta solicitada.</p>
+
+<h2>6. Conservación y eliminación</h2>
 
 <p>Los datos permanecen en la cuenta de Google del titular y bajo su control. El
 titular puede revocar el acceso de la aplicación en cualquier momento desde
@@ -66,23 +98,23 @@ titular puede revocar el acceso de la aplicación en cualquier momento desde
 y puede eliminar el token local borrando el archivo correspondiente en su equipo.
 Revocado el acceso, la aplicación deja de poder leer o modificar datos.</p>
 
-<h2>6. Seguridad</h2>
+<h2>7. Seguridad</h2>
 
-<p>El acceso se realiza mediante OAuth2 con los permisos mínimos necesarios para
-las funciones descritas. Las credenciales se almacenan localmente con permisos
-restringidos y no se comparten.</p>
+<p>El acceso se realiza mediante OAuth2, con los permisos necesarios para las
+funciones descritas. Las credenciales se almacenan localmente con permisos
+restringidos al usuario del equipo y no se comparten.</p>
 
-<h2>7. Cambios</h2>
+<h2>8. Cambios</h2>
 
 <p>Cualquier cambio en el tratamiento de datos se reflejará en esta página.</p>
 
-<h2>8. Contacto</h2>
+<h2>9. Contacto</h2>
 
 <p>Consultas sobre esta política: <strong>patricio.ingratta@gmail.com</strong> o
 <strong>ingrattasocios@gmail.com</strong></p>
 
 <footer>
-  Última actualización: septiembre de 2026.
+  Aplicación de uso personal y no comercial. Última actualización: 30 de septiembre de 2026.
 </footer>
 </body>
 </html>
