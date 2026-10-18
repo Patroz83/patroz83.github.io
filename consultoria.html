@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ConsultorIA — Automatización con IA para estudios contables</title>
-<meta name="description" content="Automatizo el trabajo repetitivo de estudios contables y servicios profesionales: documentos que llegan, datos que se pasan a mano. Un proceso por vez, medido y documentado.">
+<title>ConsultorIA — Análisis y automatización de procesos</title>
+<meta name="description" content="Analizo y rediseño procesos para profesionales y pymes: qué se repite, dónde se pierde tiempo, qué se puede eliminar. Después automatizo lo que queda. Un proceso por vez, medido y documentado.">
 <meta name="theme-color" content="#0b6b57">
 <meta property="og:title" content="ConsultorIA — No vendo IA. Devuelvo horas.">
-<meta property="og:description" content="Automatización con IA para estudios contables y servicios profesionales. Un proceso por vez, medido y documentado.">
+<meta property="og:description" content="Análisis, transformación y automatización de procesos para profesionales y pymes. Un proceso por vez, medido y documentado.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:locale:alternate" content="en_US">
@@ -170,7 +170,10 @@
   }
 
   /* ============ hero ============ */
-  .hero{padding:clamp(34px,5.5vw,74px) 0 clamp(30px,4.5vw,60px)}
+  .hero{
+    padding:clamp(34px,5.5vw,74px) 0 clamp(30px,4.5vw,60px);
+    background:radial-gradient(1100px 400px at 86% -12%, color-mix(in srgb, var(--primary-container) 45%, transparent), transparent 72%);
+  }
   .hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:clamp(24px,5vw,64px);align-items:end}
   .hero h1{margin:22px 0 0;max-width:19ch}
   .hero h1 em{font-style:normal;color:var(--primary)}
@@ -316,6 +319,29 @@
   .foot a{color:var(--on-surface-variant);text-decoration:none;border-bottom:1px solid var(--outline-variant)}
   .foot a:hover{color:var(--primary);border-bottom-color:var(--primary)}
 
+  /* ============ microinteractions ============ */
+  .card{position:relative;overflow:hidden}
+  .card::after{
+    content:"";position:absolute;left:0;top:0;height:3px;width:0;
+    background:var(--primary);transition:width .5s var(--ease);
+  }
+  .card:hover::after{width:100%}
+  .chip{transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .25s var(--ease-spring)}
+  .chip:hover{background:var(--surface-container);border-color:var(--outline);transform:translateY(-1px)}
+  .chip .dot{animation:pulse 2.8s var(--ease) infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+  .fact{transition:background .25s var(--ease),transform .3s var(--ease-spring)}
+  .fact:hover{background:var(--surface-container);transform:translateY(-3px)}
+  .nav-links a:not(.btn){position:relative}
+  .nav-links a:not(.btn)::after{
+    content:"";position:absolute;left:14px;right:14px;bottom:6px;height:1.5px;background:var(--primary);
+    transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);
+  }
+  .nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+  .flowviz .node{transition:transform .35s var(--ease-spring),background .25s var(--ease)}
+  .card:hover .flowviz .node{transform:translateX(3px)}
+  .card:hover .flowviz .node:last-of-type{transform:translateX(6px)}
+
   /* ============ motion ============ */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -323,7 +349,9 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
-    .card,.step,.btn,.card:hover,.step:hover{transition:none;transform:none}
+    .card,.step,.btn,.card:hover,.step:hover,.chip,.fact,.flowviz .node{transition:none;transform:none}
+    .chip .dot{animation:none}
+    .card::after{transition:none;width:0}
   }
   .skip{position:absolute;left:-9999px}
   .skip:focus{left:12px;top:12px;z-index:99;background:#fff;color:#000;padding:10px 14px;border-radius:8px}
@@ -360,18 +388,18 @@
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div>
-        <span class="chip"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.chip">Automatización con IA para estudios contables</span></span>
+        <span class="chip"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.chip">Análisis y transformación de procesos</span></span>
         <h1><span data-i18n="hero.t1">No vendo IA.</span><br><em data-i18n="hero.t2">Devuelvo horas.</em></h1>
-        <p class="body-lg" data-i18n="hero.lead">Automatizo el trabajo repetitivo de tu estudio: documentos que llegan, datos que se pasan a mano, informes que se arman de nuevo. Empezamos por un proceso, chico y verificable.</p>
+        <p class="body-lg" data-i18n="hero.lead">No se trata solo de automatizar tareas. Miro cómo se hace el trabajo hoy, transformo el proceso y después automatizo lo que se repite. Empezamos por uno, chico y verificable.</p>
         <div class="hero-actions">
           <a class="btn filled" href="#contacto"><span data-i18n="hero.cta">Pedir una reunión</span><span class="arw" aria-hidden="true">→</span></a>
           <a class="btn text" href="#como"><span data-i18n="hero.cta2">Cómo funciona</span></a>
         </div>
-        <p class="hero-note" data-i18n="hero.note">45 minutos, sin cargo. Sin propuesta ni diagnóstico: primero entiendo el trabajo.</p>
+        <p class="hero-note" data-i18n="hero.note">45 minutos, sin cargo. Sin propuesta ni compromiso: primero entiendo el trabajo.</p>
       </div>
 
       <div class="trust">
-        <div><i aria-hidden="true">✓</i><span data-i18n="trust.1">20+ años en producto digital</span></div>
+        <div><i aria-hidden="true">✓</i><span data-i18n="trust.1">20+ años en producto y procesos</span></div>
         <div><i aria-hidden="true">✓</i><span data-i18n="trust.2">Revisión humana en cada paso</span></div>
         <div><i aria-hidden="true">✓</i><span data-i18n="trust.3">Se prueba sobre copias, nunca en producción</span></div>
       </div>
@@ -384,7 +412,7 @@
       <div class="sec-head">
         <span class="eyebrow" data-i18n="what.eyebrow">Qué se automatiza</span>
         <h2 data-i18n="what.title">Lo mecánico se resuelve solo.</h2>
-        <p class="body-lg" data-i18n="what.lead">El criterio profesional se queda donde tiene que estar: con tu equipo. Esto es lo que suelo automatizar primero.</p>
+        <p class="body-lg" data-i18n="what.lead">Antes de automatizar, pregunto si ese paso hace falta. El criterio profesional se queda donde tiene que estar: en tus manos. Esto es lo que suelo automatizar después de ordenar el proceso.</p>
       </div>
 
       <div class="cards">
@@ -430,29 +458,29 @@
     <div class="wrap reveal">
       <div class="sec-head">
         <span class="eyebrow" data-i18n="how.eyebrow">Cómo funciona</span>
-        <h2 data-i18n="how.title">Cuatro pasos. Uno por vez.</h2>
+        <h2 data-i18n="how.title">Primero el proceso. Después la herramienta.</h2>
       </div>
 
       <div class="steps">
         <div class="step">
           <span class="n">1</span>
-          <h3 data-i18n="how.s1.t">Relevar</h3>
-          <p data-i18n="how.s1.d">Entiendo la tarea paso a paso, con tus documentos y tus excepciones.</p>
+          <h3 data-i18n="how.s1.t">Análisis de procesos</h3>
+          <p data-i18n="how.s1.d">Miro cómo se hace hoy: quién hace qué, dónde se espera, dónde se repite y dónde se pierde información. Sale un mapa del proceso y las oportunidades ordenadas por impacto.</p>
         </div>
         <div class="step">
           <span class="n">2</span>
-          <h3 data-i18n="how.s2.t">Construir</h3>
-          <p data-i18n="how.s2.d">Una versión chica funcionando sobre copias. Nada toca producción.</p>
+          <h3 data-i18n="how.s2.t">Rediseño</h3>
+          <p data-i18n="how.s2.d">Antes de automatizar, simplifico: qué paso se puede eliminar, cuál unir, cuál ordenar distinto. A veces el mejor arreglo no necesita tecnología.</p>
         </div>
         <div class="step">
           <span class="n">3</span>
-          <h3 data-i18n="how.s3.t">Medir</h3>
-          <p data-i18n="how.s3.d">Tiempo antes y después, errores, correcciones. Sin números no hay caso.</p>
+          <h3 data-i18n="how.s3.t">Automatización</h3>
+          <p data-i18n="how.s3.d">Lo que queda y se repite se automatiza. Una versión chica funcionando sobre copias: nada toca producción.</p>
         </div>
         <div class="step">
           <span class="n">4</span>
-          <h3 data-i18n="how.s4.t">Decidir</h3>
-          <p data-i18n="how.s4.d">Seguimos con el proceso siguiente, lo mantenemos o lo damos de baja.</p>
+          <h3 data-i18n="how.s4.t">Medir y decidir</h3>
+          <p data-i18n="how.s4.d">Tiempo antes y después, errores, correcciones. Sin números no hay caso. Después: el proceso siguiente, mantenerlo o darlo de baja.</p>
         </div>
       </div>
 
@@ -468,11 +496,11 @@
         <h2 style="margin-top:12px" data-i18n="about.title">Vengo del producto, no de la consultoría.</h2>
       </div>
       <div>
-        <p class="body-lg" data-i18n="about.p1">Soy Patricio Ingratta. Pasé más de veinte años definiendo y mejorando sistemas que la gente usa todos los días: producto, UX, procesos y documentación. Eso es lo que traigo a un estudio: la costumbre de relevar, acotar, medir y dejar todo por escrito.</p>
-        <p class="body-lg" data-i18n="about.p2">Automatizo el trabajo mecánico. Las decisiones contables, fiscales y profesionales siguen siendo tuyas, y la solución queda documentada y portable: no te encierro en ninguna plataforma.</p>
+        <p class="body-lg" data-i18n="about.p1">Soy Patricio Ingratta. Pasé más de veinte años definiendo y mejorando productos y procesos digitales: producto, UX, documentación y coordinación de equipos. Mi trabajo empieza en el análisis de procesos: entender cómo se hace hoy, encontrar dónde se pierde tiempo y rediseñar antes de automatizar.</p>
+        <p class="body-lg" data-i18n="about.p2">Automatizo el trabajo mecánico. Las decisiones profesionales y de negocio siguen siendo tuyas, y la solución queda documentada y portable: no te encierro en ninguna plataforma.</p>
 
         <div class="facts">
-          <div class="fact"><span class="k" data-i18n="about.f1.k">+20</span><span class="v" data-i18n="about.f1.v">años en producto digital</span></div>
+          <div class="fact"><span class="k" data-i18n="about.f1.k">+20</span><span class="v" data-i18n="about.f1.v">años en producto y procesos</span></div>
           <div class="fact"><span class="k" data-i18n="about.f2.k">Producto</span><span class="v" data-i18n="about.f2.v">UX, procesos y documentación</span></div>
           <div class="fact"><span class="k" data-i18n="about.f3.k">Remoto</span><span class="v" data-i18n="about.f3.v">desde Buenos Aires, Argentina</span></div>
         </div>
@@ -490,9 +518,9 @@
       <div>
         <span class="eyebrow" data-i18n="cta.eyebrow">Empecemos</span>
         <h2 style="margin-top:14px" data-i18n="cta.title">Contame qué tarea te está comiendo la semana.</h2>
-        <p class="body-lg" data-i18n="cta.lead">Una reunión de 45 minutos, sin cargo. No hay propuesta ni diagnóstico en esa charla: primero entiendo el trabajo y después te digo si hay algo que valga la pena.</p>
+        <p class="body-lg" data-i18n="cta.lead">Una reunión de 45 minutos, sin cargo. No es una propuesta ni una auditoría: primero entiendo el trabajo y después te digo si hay algo que valga la pena.</p>
         <div class="chips">
-          <span class="chip" data-i18n="cta.c1">Diagnóstico</span>
+          <span class="chip" data-i18n="cta.c1">Análisis de procesos</span>
           <span class="chip" data-i18n="cta.c2">Piloto</span>
           <span class="chip" data-i18n="cta.c3">Mejora continua</span>
         </div>
@@ -511,13 +539,13 @@
             </div>
             <div class="field" id="f-email">
               <label for="email" data-i18n="form.email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required placeholder="tu@estudio.com">
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
               <span class="err-msg" data-i18n="form.email.err">Revisá el email.</span>
             </div>
           </div>
 
           <div class="field">
-            <label for="company" data-i18n="form.company">Estudio o empresa (opcional)</label>
+            <label for="company" data-i18n="form.company">Empresa u organización (opcional)</label>
             <input id="company" name="company" type="text" autocomplete="organization" placeholder="">
           </div>
 
@@ -550,7 +578,7 @@
 <footer>
   <div class="wrap foot">
     <span>ConsultorIA · Patricio Ingratta</span>
-    <span data-i18n="foot.tag">Automatización con IA para estudios contables y servicios profesionales.</span>
+    <span data-i18n="foot.tag">Análisis y automatización de procesos para profesionales y pymes.</span>
     <span>© <span id="year">2026</span> · <span data-i18n="foot.loc">Buenos Aires, Argentina</span></span>
   </div>
 </footer>
@@ -562,17 +590,17 @@ const I18N = {
     "skip":"Ir al contenido",
     "nav.what":"Qué se automatiza","nav.how":"Cómo funciona","nav.about":"Quién soy",
     "nav.cta":"Hablemos","nav.cta2":"Hablemos","nav.menu":"Abrir menú","nav.close":"Cerrar menú",
-    "title":"ConsultorIA — Automatización con IA para estudios contables",
-    "desc":"Automatizo el trabajo repetitivo de estudios contables y servicios profesionales: documentos que llegan, datos que se pasan a mano. Un proceso por vez, medido y documentado.",
-    "hero.chip":"Automatización con IA para estudios contables",
+    "title":"ConsultorIA — Análisis y automatización de procesos",
+    "desc":"Analizo y rediseño procesos para profesionales y pymes: qué se repite, dónde se pierde tiempo, qué se puede eliminar. Después automatizo lo que queda. Un proceso por vez, medido y documentado.",
+    "hero.chip":"Análisis y transformación de procesos",
     "hero.t1":"No vendo IA.","hero.t2":"Devuelvo horas.",
-    "hero.lead":"Automatizo el trabajo repetitivo de tu estudio: documentos que llegan, datos que se pasan a mano, informes que se arman de nuevo. Empezamos por un proceso, chico y verificable.",
+    "hero.lead":"No se trata solo de automatizar tareas. Miro cómo se hace el trabajo hoy, transformo el proceso y después automatizo lo que se repite. Empezamos por uno, chico y verificable.",
     "hero.cta":"Pedir una reunión","hero.cta2":"Cómo funciona",
-    "hero.note":"45 minutos, sin cargo. Sin propuesta ni diagnóstico: primero entiendo el trabajo.",
-    "trust.1":"20+ años en producto digital","trust.2":"Revisión humana en cada paso",
+    "hero.note":"45 minutos, sin cargo. Sin propuesta ni compromiso: primero entiendo el trabajo.",
+    "trust.1":"20+ años en producto y procesos","trust.2":"Revisión humana en cada paso",
     "trust.3":"Se prueba sobre copias, nunca en producción",
     "what.eyebrow":"Qué se automatiza","what.title":"Lo mecánico se resuelve solo.",
-    "what.lead":"El criterio profesional se queda donde tiene que estar: con tu equipo. Esto es lo que suelo automatizar primero.",
+    "what.lead":"Antes de automatizar, pregunto si ese paso hace falta. El criterio profesional se queda donde tiene que estar: en tus manos. Esto es lo que suelo automatizar después de ordenar el proceso.",
     "card1.t":"Documentos → datos",
     "card1.d":"PDFs, mails y planillas que se convierten en una tabla ordenada, lista para revisar. Es el caso con mejor relación entre valor y riesgo, por eso casi siempre empieza ahí.",
     "card1.tag":"El más común","card2.t":"Clasificación",
@@ -580,26 +608,26 @@ const I18N = {
     "flow.in":"Documentos sueltos","flow.auto":"Clasificación y extracción","flow.out":"Tabla lista para revisar",
     "card3.t":"Informes","card3.d":"El mismo informe, siempre igual, con datos que ya existen en algún lado.",
     "card4.t":"Controles","card4.d":"Revisar lo que se repite todos los meses y marcar solo las excepciones.",
-    "how.eyebrow":"Cómo funciona","how.title":"Cuatro pasos. Uno por vez.",
-    "how.s1.t":"Relevar","how.s1.d":"Entiendo la tarea paso a paso, con tus documentos y tus excepciones.",
-    "how.s2.t":"Construir","how.s2.d":"Una versión chica funcionando sobre copias. Nada toca producción.",
-    "how.s3.t":"Medir","how.s3.d":"Tiempo antes y después, errores, correcciones. Sin números no hay caso.",
-    "how.s4.t":"Decidir","how.s4.d":"Seguimos con el proceso siguiente, lo mantenemos o lo damos de baja.",
+    "how.eyebrow":"Cómo funciona","how.title":"Primero el proceso. Después la herramienta.",
+    "how.s1.t":"Análisis de procesos","how.s1.d":"Miro cómo se hace hoy: quién hace qué, dónde se espera, dónde se repite y dónde se pierde información. Sale un mapa del proceso y las oportunidades ordenadas por impacto.",
+    "how.s2.t":"Rediseño","how.s2.d":"Antes de automatizar, simplifico: qué paso se puede eliminar, cuál unir, cuál ordenar distinto. A veces el mejor arreglo no necesita tecnología.",
+    "how.s3.t":"Automatización","how.s3.d":"Lo que queda y se repite se automatiza. Una versión chica funcionando sobre copias: nada toca producción.",
+    "how.s4.t":"Medir y decidir","how.s4.d":"Tiempo antes y después, errores, correcciones. Sin números no hay caso. Después: el proceso siguiente, mantenerlo o darlo de baja.",
     "how.note":"Si en el camino la oportunidad no cierra, te lo digo antes de gastar más plata.",
     "about.eyebrow":"Quién soy","about.title":"Vengo del producto, no de la consultoría.",
-    "about.p1":"Soy Patricio Ingratta. Pasé más de veinte años definiendo y mejorando sistemas que la gente usa todos los días: producto, UX, procesos y documentación. Eso es lo que traigo a un estudio: la costumbre de relevar, acotar, medir y dejar todo por escrito.",
-    "about.p2":"Automatizo el trabajo mecánico. Las decisiones contables, fiscales y profesionales siguen siendo tuyas, y la solución queda documentada y portable: no te encierro en ninguna plataforma.",
-    "about.f1.k":"+20","about.f1.v":"años en producto digital",
+    "about.p1":"Soy Patricio Ingratta. Pasé más de veinte años definiendo y mejorando productos y procesos digitales: producto, UX, documentación y coordinación de equipos. Mi trabajo empieza en el análisis de procesos: entender cómo se hace hoy, encontrar dónde se pierde tiempo y rediseñar antes de automatizar.",
+    "about.p2":"Automatizo el trabajo mecánico. Las decisiones profesionales y de negocio siguen siendo tuyas, y la solución queda documentada y portable: no te encierro en ninguna plataforma.",
+    "about.f1.k":"+20","about.f1.v":"años en producto y procesos",
     "about.f2.k":"Producto","about.f2.v":"UX, procesos y documentación",
     "about.f3.k":"Remoto","about.f3.v":"desde Buenos Aires, Argentina",
     "about.link":"Ver LinkedIn",
     "cta.eyebrow":"Empecemos","cta.title":"Contame qué tarea te está comiendo la semana.",
-    "cta.lead":"Una reunión de 45 minutos, sin cargo. No hay propuesta ni diagnóstico en esa charla: primero entiendo el trabajo y después te digo si hay algo que valga la pena.",
-    "cta.c1":"Diagnóstico","cta.c2":"Piloto","cta.c3":"Mejora continua",
+    "cta.lead":"Una reunión de 45 minutos, sin cargo. No es una propuesta ni una auditoría: primero entiendo el trabajo y después te digo si hay algo que valga la pena.",
+    "cta.c1":"Análisis de procesos","cta.c2":"Piloto","cta.c3":"Mejora continua",
     "form.title":"Escribime","form.hint":"Contame en dos líneas qué se repite y cuánto tiempo te lleva.",
     "form.name":"Nombre","form.name.ph":"Nombre y apellido","form.name.err":"Poné tu nombre.",
-    "form.email":"Email","form.email.ph":"tu@estudio.com","form.email.err":"Revisá el email.",
-    "form.company":"Estudio o empresa (opcional)","form.company.ph":"Nombre del estudio",
+    "form.email":"Email","form.email.ph":"tu@email.com","form.email.err":"Revisá el email.",
+    "form.company":"Empresa u organización (opcional)","form.company.ph":"Nombre de tu empresa o estudio",
     "form.message":"¿Qué tarea se repite?","form.message.ph":"Ej.: pasamos a mano los datos de las facturas de compra a la planilla, unas 6 horas por semana.",
     "form.message.err":"Contame al menos en una línea.",
     "form.send":"Enviar mensaje","form.sending":"Enviando…",
@@ -608,24 +636,24 @@ const I18N = {
     "form.ok":"Listo. Recibí tu mensaje y te respondo a la brevedad.",
     "form.bad":"No se pudo enviar. Probá de nuevo en un momento.",
     "form.notready":"El envío todavía no está conectado.",
-    "foot.tag":"Automatización con IA para estudios contables y servicios profesionales.",
+    "foot.tag":"Análisis y automatización de procesos para profesionales y pymes.",
     "foot.loc":"Buenos Aires, Argentina"
   },
   en: {
     "skip":"Skip to content",
     "nav.what":"What I automate","nav.how":"How it works","nav.about":"About",
     "nav.cta":"Let's talk","nav.cta2":"Let's talk","nav.menu":"Open menu","nav.close":"Close menu",
-    "title":"ConsultorIA — AI automation for accounting firms",
-    "desc":"I automate the repetitive work inside accounting and professional-services firms: documents that arrive, data retyped by hand. One process at a time, measured and documented.",
-    "hero.chip":"AI automation for accounting firms",
+    "title":"ConsultorIA — Process analysis and automation",
+    "desc":"I analyse and redesign processes for professionals and small businesses: what repeats, where time gets lost, what can be removed. Then I automate what's left. One process at a time, measured and documented.",
+    "hero.chip":"Process analysis and transformation",
     "hero.t1":"I don't sell AI.","hero.t2":"I give you hours back.",
-    "hero.lead":"I automate the repetitive work inside your firm: documents that arrive, data retyped by hand, reports rebuilt every month. We start with one process — small and verifiable.",
+    "hero.lead":"It's not just about automating tasks. I look at how the work gets done today, transform the process and then automate what repeats. We start with one — small and verifiable.",
     "hero.cta":"Book a call","hero.cta2":"How it works",
-    "hero.note":"45 minutes, free. No pitch and no audit: first I understand the work.",
-    "trust.1":"20+ years in digital product","trust.2":"Human review at every step",
+    "hero.note":"45 minutes, free. No pitch, no commitment: first I understand the work.",
+    "trust.1":"20+ years in product and process","trust.2":"Human review at every step",
     "trust.3":"Tested on copies, never in production",
     "what.eyebrow":"What I automate","what.title":"The work that needs no judgement.",
-    "what.lead":"Professional judgement stays where it belongs: with your team. This is what I usually automate first.",
+    "what.lead":"Before automating, I ask whether that step is needed at all. Professional judgement stays where it belongs: with you. This is what I usually automate once the process is in order.",
     "card1.t":"Documents → data",
     "card1.d":"PDFs, emails and spreadsheets turned into one clean table, ready for review. It has the best value-to-risk ratio, which is why the first project almost always starts here.",
     "card1.tag":"Most common","card2.t":"Classification",
@@ -633,26 +661,26 @@ const I18N = {
     "flow.in":"Loose documents","flow.auto":"Classification & extraction","flow.out":"Table ready to review",
     "card3.t":"Reports","card3.d":"The same report, always in the same shape, from data that already exists somewhere.",
     "card4.t":"Controls","card4.d":"Check what repeats every month and flag only the exceptions.",
-    "how.eyebrow":"How it works","how.title":"Four steps. One at a time.",
-    "how.s1.t":"Understand","how.s1.d":"I map the task step by step, with your documents and your exceptions.",
-    "how.s2.t":"Build","how.s2.d":"A small working version on copies. Nothing touches production.",
-    "how.s3.t":"Measure","how.s3.d":"Time before and after, errors, corrections. No numbers, no case.",
-    "how.s4.t":"Decide","how.s4.d":"Move to the next process, keep it running, or drop it.",
+    "how.eyebrow":"How it works","how.title":"The process first. The tool second.",
+    "how.s1.t":"Process analysis","how.s1.d":"I look at how the work gets done today: who does what, where it waits, what repeats and where information gets lost. You get a map of the process and the opportunities ranked by impact.",
+    "how.s2.t":"Redesign","how.s2.d":"Before automating, I simplify: which step can go, which can be merged, which should happen in a different order. Sometimes the best fix needs no technology.",
+    "how.s3.t":"Automation","how.s3.d":"What's left and repeats gets automated. A small version running on copies: nothing touches production.",
+    "how.s4.t":"Measure & decide","how.s4.d":"Time before and after, errors, corrections. No numbers, no case. Then: the next process, keep it running, or drop it.",
     "how.note":"If the numbers don't add up along the way, I tell you before you spend more.",
     "about.eyebrow":"About","about.title":"I come from product, not from consulting.",
-    "about.p1":"I'm Patricio Ingratta. I spent over twenty years defining and improving the systems people use every day: product, UX, process and documentation. That's what I bring to a firm — the habit of mapping, scoping, measuring and writing it down.",
-    "about.p2":"I automate the mechanical work. Accounting, tax and professional decisions stay yours, and the solution is documented and portable: no lock-in to any platform.",
-    "about.f1.k":"20+","about.f1.v":"years in digital product",
+    "about.p1":"I'm Patricio Ingratta. I spent over twenty years defining and improving digital products and processes: product, UX, documentation and team coordination. My work starts with process analysis: understanding how things are done today, finding where time gets lost, and redesigning before automating.",
+    "about.p2":"I automate the mechanical work. Professional and business decisions stay yours, and the solution is documented and portable: no lock-in to any platform.",
+    "about.f1.k":"20+","about.f1.v":"years in product and process",
     "about.f2.k":"Product","about.f2.v":"UX, process and documentation",
     "about.f3.k":"Remote","about.f3.v":"from Buenos Aires, Argentina",
     "about.link":"View LinkedIn",
     "cta.eyebrow":"Let's start","cta.title":"Tell me which task is eating your week.",
-    "cta.lead":"A 45-minute call, free. No pitch and no audit on that call: first I understand the work, then I tell you if there's something worth doing.",
-    "cta.c1":"Assessment","cta.c2":"Pilot","cta.c3":"Ongoing improvement",
+    "cta.lead":"A 45-minute call, free. No pitch and no audit: first I understand the work, then I tell you if there's something worth doing.",
+    "cta.c1":"Process analysis","cta.c2":"Pilot","cta.c3":"Ongoing improvement",
     "form.title":"Get in touch","form.hint":"Two lines about what repeats and how long it takes.",
     "form.name":"Name","form.name.ph":"First and last name","form.name.err":"Please enter your name.",
-    "form.email":"Email","form.email.ph":"you@yourfirm.com","form.email.err":"Please check your email.",
-    "form.company":"Firm or company (optional)","form.company.ph":"Firm name",
+    "form.email":"Email","form.email.ph":"you@yourcompany.com","form.email.err":"Please check your email.",
+    "form.company":"Company or organisation (optional)","form.company.ph":"Your company or practice name",
     "form.message":"Which task repeats?","form.message.ph":"e.g. we retype purchase invoice data into a spreadsheet by hand, about 6 hours a week.",
     "form.message.err":"Tell me at least one line.",
     "form.send":"Send message","form.sending":"Sending…",
@@ -661,7 +689,7 @@ const I18N = {
     "form.ok":"Got it. I'll get back to you shortly.",
     "form.bad":"Couldn't send. Please try again in a moment.",
     "form.notready":"Sending isn't wired up yet.",
-    "foot.tag":"AI automation for accounting and professional-services firms.",
+    "foot.tag":"Process analysis and automation for professionals and small businesses.",
     "foot.loc":"Buenos Aires, Argentina"
   }
 };
