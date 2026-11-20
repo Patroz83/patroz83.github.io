@@ -275,6 +275,20 @@ footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
 .mno b{font-size:15px;font-weight:650}
 .mno p{margin:4px 0 0;font-size:15px;color:var(--muted)}
 
+/* ejemplo antes/después: animación tranquila */
+.ba-p{transition:none}
+.ba-p.man{animation:ba-slow 7.5s ease-in-out infinite}
+.ba-p.man:nth-of-type(2){animation-delay:1.5s}.ba-p.man:nth-of-type(3){animation-delay:3s}.ba-p.man:nth-of-type(4){animation-delay:4.5s}.ba-p.man:nth-of-type(5){animation-delay:6s}
+@keyframes ba-slow{0%,22%,100%{transform:none;box-shadow:none;border-color:var(--line2)}5%,17%{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 8px 18px -12px rgba(20,36,32,.5)}}
+.ba-p.auto{animation:ba-quick 7.5s ease-in-out infinite}
+.ba-p.auto:nth-of-type(2){animation-delay:.45s}.ba-p.auto:nth-of-type(3){animation-delay:.9s}
+@keyframes ba-quick{0%,9%,100%{transform:none;box-shadow:none}2%,6%{transform:translateY(-3px);box-shadow:0 8px 18px -10px rgba(11,107,87,.7)}}
+.ba-p.human{animation:ba-human 7.5s ease-in-out 1.35s infinite}
+@keyframes ba-human{0%,36%,100%{transform:none;box-shadow:0 0 0 0 rgba(244,220,107,0)}6%,28%{transform:translateY(-3px);box-shadow:0 0 0 7px rgba(244,220,107,.45)}}
+.ba-sum b{transition:none}
+.ba-row:nth-child(2) .ba-sum b{animation:ba-done 7.5s ease-in-out 1.35s infinite}
+@keyframes ba-done{0%,30%,100%{color:var(--ink)}38%,90%{color:var(--green)}}
+@media(prefers-reduced-motion:reduce){.ba-p,.ba-sum b{animation:none!important}}
 /* diagramas animados: comunes */
 .dd-flow{fill:none;stroke:var(--line2);stroke-width:2;stroke-dasharray:4 8;animation:dd-march .5s linear infinite}
 .dd-flow.dd-out{stroke:var(--green)}
