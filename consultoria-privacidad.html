@@ -6,28 +6,50 @@
 <title>Política de privacidad | Patricio Ingratta</title>
 <meta name="description" content="Cómo se tratan los datos personales enviados a través del formulario de contacto.">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#090a11">
+<meta name="theme-color" content="#F5F7F6">
+<link rel="icon" href="img/icono.svg" type="image/svg+xml">
+<link rel="canonical" href="https://patroz83.github.io/consultoria-privacidad.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#090a11;--panel:#111118;--line:#1d1f2f;--ink:#fafafa;--muted:#a3a3b2;--accent:#ff4d00}
+:root{--paper:#F5F7F6;--sheet:#FFFFFF;--ink:#142420;--muted:#4E5F59;--line:#D3DDD8;--line2:#B9C8C1;--green:#0B6B57;--green-dark:#08503F;--mint:#E4F0EB;--mark:#F4DC6B;--font:"Encode Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--pad:clamp(20px,4.5vw,48px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.7}
-.wrap{max-width:46rem;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(20px,4.5vw,40px)}
-a{color:var(--accent)}
-.back{display:inline-block;margin-bottom:28px;font-size:14px;color:var(--muted);text-decoration:none}
-.back:hover{color:var(--ink)}
-h1{font-size:clamp(26px,4vw,34px);line-height:1.2;margin:0 0 8px}
-h2{font-size:18px;margin:36px 0 8px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-underline-offset:3px}
+a:hover{color:var(--green-dark)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--sheet);color:var(--ink);padding:10px 14px;border:2px solid var(--green);border-radius:6px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,247,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1120px;margin:auto;padding:0 var(--pad);height:68px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-size:20px;font-weight:680;font-stretch:120%;letter-spacing:-.025em}
+.brand:hover{color:var(--ink)}
+.mark{width:30px;height:30px;display:block;flex-shrink:0}
+.back{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.back:hover{background:var(--ink);color:var(--paper)}
+.wrap{max-width:46rem;margin:0 auto;padding:clamp(40px,6vw,72px) var(--pad) clamp(56px,7vw,96px)}
+h1,h2{margin:0;font-stretch:118%;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.08;font-weight:650}
+h2{font-size:21px;line-height:1.25;font-weight:650;margin:40px 0 10px;padding-top:28px;border-top:1px solid var(--line)}
 p,li{color:var(--muted)}
-strong{color:var(--ink)}
+strong{color:var(--ink);font-weight:650}
 ul{padding-left:1.2em}
-.updated{font-size:14px;color:var(--muted);margin:0 0 28px}
-.legal{margin-top:36px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);border-radius:6px;font-size:14.5px}
-footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+li{margin:4px 0}
+li::marker{color:var(--green)}
+.updated{font-size:15px;color:var(--muted);margin:12px 0 32px}
+.legal{margin-top:40px;padding:22px 24px;background:var(--mint);border-radius:12px;font-size:15.5px}
+.legal p{color:var(--ink)}
+.legal a{color:var(--green-dark)}
+footer{background:var(--ink);padding:24px 0}
+.foot{max-width:1120px;margin:auto;padding:0 var(--pad);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#9FB1AA;font-size:14px}
+.foot a{color:#DCE8E3}
 </style>
 </head>
 <body>
-<main class="wrap">
-<a class="back" href="consultoria.html">← Volver al inicio</a>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="topbar"><div class="topbar-in"><a class="brand" href="consultoria.html"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B6B57"/><rect x="14" y="17" width="30" height="6" rx="3" fill="#fff"/><rect x="10" y="29" width="44" height="6" rx="3" fill="#F4DC6B"/><rect x="14" y="41" width="24" height="6" rx="3" fill="#fff"/></svg><span>Patricio Ingratta</span></a><a class="back" href="consultoria.html">Volver al inicio</a></div></header>
+<main class="wrap" id="main">
 <h1>Política de privacidad</h1>
 <p class="updated">Última actualización: 20 de noviembre de 2026</p>
 
@@ -76,7 +98,7 @@ footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-si
 <h2>8. Cambios en esta política</h2>
 <p>Si esta política cambia, se publica la nueva versión en esta misma página con su fecha de actualización.</p>
 
-<footer>Patricio Ingratta · Buenos Aires, Argentina</footer>
 </main>
+<footer><div class="foot"><span>Patricio Ingratta</span><span>Automatización e IA para profesionales y PyMEs.</span><span>© 2026 · Buenos Aires, Argentina</span></div></footer>
 </body>
 </html>
