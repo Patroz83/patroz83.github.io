@@ -3,264 +3,370 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automatización e IA para profesionales y PyMEs | Patricio Ingratta</title>
+<title>Patricio Ingratta | Automatización e IA para profesionales y PyMEs</title>
+<link rel="icon" href="img/icono.svg" type="image/svg+xml">
 <meta name="description" content="Consultoría en automatización, transformación de documentos y agentes de IA para profesionales y PyMEs. Procesos más simples, menos tareas manuales y mayor control.">
-<meta name="theme-color" content="#090a11">
-<meta property="og:title" content="ConsultorIA — Procesos más simples. Más tiempo para tu negocio.">
+<meta name="theme-color" content="#F5F7F6">
+<meta property="og:title" content="Patricio Ingratta — Recuperá las horas que hoy se van en tareas repetitivas.">
 <meta property="og:description" content="Automatización e IA aplicada a procesos reales, con revisión humana, alcance claro y acompañamiento de punta a punta.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
 <style>
 :root{
---bg:#090a11;--bg2:#0a0a0f;--panel:#111118;--panel2:#1a1a24;--line:#1d1f2f;--line2:#2a2d42;
---ink:#fafafa;--muted:#8b8b9a;--dim:#82828f;--accent:#ff4d00;--accent-soft:rgba(255,77,0,.12);
---ok:#4ade80;--bad:#f87171;
---mono:"JetBrains Mono",ui-monospace,monospace;--font:"DM Sans",system-ui,sans-serif;
---radius:6px;--max:1180px;--pad:clamp(20px,4.5vw,56px)}
+--paper:#F5F7F6;--sheet:#FFFFFF;--ink:#142420;--muted:#4E5F59;--line:#D3DDD8;--line2:#B9C8C1;
+--green:#0B6B57;--green-dark:#08503F;--mint:#E4F0EB;--mark:#F4DC6B;--bad:#A3322A;
+--font:"Encode Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+--max:1120px;--pad:clamp(20px,4.5vw,48px);--r:10px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--max);margin:auto;padding:0 var(--pad)}
-a{color:inherit}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
 .skip{position:absolute;left:-9999px}
-.skip:focus{left:12px;top:12px;z-index:99;background:var(--panel);color:var(--ink);padding:10px 14px;border:1px solid var(--accent);border-radius:4px}
-h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;font-family:var(--mono);font-weight:700}
-h1{font-size:clamp(30px,4.2vw,48px);line-height:1.1}
-h2{font-size:clamp(25px,3.3vw,38px);line-height:1.15}
-h3{font-size:18px;font-weight:600;line-height:1.3}
-.body-lg{font-size:clamp(15.5px,1.3vw,17.5px);color:var(--muted);line-height:1.7}
-.eyebrow{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.16em;color:var(--accent);display:inline-flex;gap:8px;align-items:center}
-.eyebrow::before{content:"❯";color:var(--accent);opacity:.9}
-.block{counter-increment:sec}
-.block .eyebrow::before{content:"0" counter(sec) " · "}
-body{counter-reset:sec}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--sheet);color:var(--ink);padding:10px 14px;border:2px solid var(--green);border-radius:6px}
+h1,h2,h3{margin:0;font-stretch:118%;font-weight:650;letter-spacing:-.015em;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(34px,4.2vw,52px);line-height:1.06}
+h2{font-size:clamp(26px,3vw,36px)}
+h3{font-size:19px;font-weight:600;line-height:1.3}
+.body-lg{font-size:clamp(17px,1.35vw,19px);color:var(--muted);line-height:1.6;max-width:62ch}
 
-/* top bar */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(9,10,17,.86);backdrop-filter:blur(12px);border-bottom:1px solid transparent}
+/* barra superior */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,247,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent}
 .topbar.stuck{border-color:var(--line)}
-.topbar-in{height:66px;display:flex;align-items:center;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 16px var(--mono);letter-spacing:-.01em}
-.mark{width:28px;height:28px;border:1px solid var(--accent);border-radius:4px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent);font:700 13px var(--mono)}
-.brand b{color:var(--accent);font-weight:700}
+.topbar-in{height:68px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-size:20px;font-weight:680;font-stretch:120%;letter-spacing:-.025em}
+.mark{width:30px;height:30px;display:block;flex-shrink:0}
 nav{display:flex;margin-left:auto;align-items:center;gap:2px}
-nav a{text-decoration:none;padding:8px 10px;border-radius:4px;font:500 12.5px var(--mono);color:var(--muted);letter-spacing:.02em}
-nav a:hover{color:var(--ink);background:var(--panel)}
+nav a{text-decoration:none;padding:8px 11px;border-radius:6px;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--ink);background:var(--mint)}
 .actions{display:flex;align-items:center;gap:8px}
-.lang{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 10px;border-radius:4px;cursor:pointer;font:600 11px var(--mono);letter-spacing:.08em}
-.lang:hover{color:var(--ink);border-color:var(--line2)}
-.burger{display:none;border:1px solid var(--line);background:transparent;color:var(--ink);width:42px;height:42px;border-radius:4px;font-size:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border-radius:4px;border:1px solid transparent;text-decoration:none;font:600 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
-.btn.primary{background:var(--accent);color:#0a0a0f}
-.btn.primary:hover{background:#ff6a26}
-.btn.tonal{background:var(--panel);border-color:var(--line);color:var(--ink)}
-.btn.text{color:var(--muted);padding:0 6px;border-bottom:1px solid var(--line);border-radius:0}
-.btn.text:hover{color:var(--accent);border-color:var(--accent)}
+.lang{border:1px solid var(--line2);background:transparent;color:var(--muted);padding:8px 10px;border-radius:6px;cursor:pointer;font:600 13px var(--font)}
+.lang:hover{color:var(--ink);border-color:var(--ink)}
+.burger{display:none;border:1px solid var(--line2);background:transparent;color:var(--ink);width:44px;height:44px;border-radius:6px;font-size:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px;border:1.5px solid transparent;text-decoration:none;font:600 16px var(--font);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn.primary{background:var(--green);color:#fff}
+.btn.primary:hover{background:var(--green-dark)}
+.btn.primary:disabled{opacity:.6;cursor:wait}
+.btn.tonal{border-color:var(--ink);color:var(--ink)}
+.btn.tonal:hover{background:var(--ink);color:var(--paper)}
+.btn.text{color:var(--green);padding:0 8px;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+.btn.text:hover{color:var(--green-dark)}
 
 /* hero */
-.hero{position:relative;padding:clamp(48px,7vw,96px) 0 clamp(40px,5vw,64px);background:radial-gradient(760px 400px at 82% 0,rgba(255,77,0,.10),transparent 70%),var(--bg);overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(29,31,47,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(29,31,47,.6) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 0,#000 10%,transparent 72%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.45fr .55fr;gap:clamp(28px,5vw,64px);align-items:center}
-.chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:4px;padding:7px 11px;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:rgba(17,17,24,.7)}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(255,77,0,.16)}
-.hero h1{margin-top:24px;max-width:24ch;text-wrap:balance}
-.hero h1 em{color:var(--accent);font-style:normal}
-.hero h1 em::after{content:"▊";color:var(--accent);margin-left:4px;animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.hero .body-lg{max-width:56ch;margin-top:22px}
-.examples-title{margin:20px 0 6px;font:500 12px var(--mono);color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
-.examples{margin:0;padding:0;list-style:none;display:grid;gap:6px;max-width:60ch}
-.examples li{color:var(--muted);font-size:15px;padding-left:20px;position:relative}
-.examples li::before{content:"›";position:absolute;left:4px;color:var(--accent)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.hero-note{font:400 12px var(--mono);color:var(--dim);margin-top:16px;line-height:1.6}
-.trust{background:#0d0d14;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-family:var(--mono)}
-.trust::before{content:"❯_ consultoria";display:block;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg2);font:500 10.5px var(--mono);color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
-.trust div{display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding:14px;color:var(--muted);font-size:12.5px;line-height:1.55}
-.trust div:last-child{border-bottom:0}
-.trust i{font-style:normal;color:var(--ok);font-size:12px;line-height:1.5}
+.hero{padding:clamp(40px,6vw,88px) 0 clamp(36px,4vw,56px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1 em{font-style:normal}
+.hero .body-lg{margin-top:22px}
+.examples-title{margin:24px 0 8px;font-size:15px;font-weight:600;color:var(--ink)}
+.examples{margin:0;padding:0;list-style:none;display:grid;gap:6px;max-width:58ch}
+.examples li{color:var(--muted);font-size:16px;padding-left:22px;position:relative}
+.examples li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:2px;background:var(--green)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
+.hero-note{font-size:15px;color:var(--muted);margin-top:12px}
 
-/* sections */
-.block{padding:clamp(56px,7vw,92px) 0;border-top:1px solid var(--line)}
-.sec-head{max-width:800px;display:grid;gap:14px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:100%;transition:border-color .15s}
-.card:hover{border-color:var(--line2)}
-.card p{color:var(--muted);font-size:14.5px;margin:10px 0 0;line-height:1.65}
-.card .num{font:500 11px var(--mono);letter-spacing:.12em;color:var(--accent)}
-.card h3{margin-top:12px}
-.card.feature{grid-column:1/-1;background:linear-gradient(180deg,#13131c,#0f0f16);display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;border-color:var(--line2)}
-.flow{display:grid;gap:7px}
-.flow div{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:11px 13px;font:400 12px var(--mono);color:var(--muted);line-height:1.5}
-.flow span{font:500 10px var(--mono);color:var(--accent);margin-right:9px;letter-spacing:.08em}
-.usecases{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
-.usecase{padding:15px 17px;background:var(--bg2);border:1px solid var(--line);border-radius:4px;display:flex;gap:11px;font-size:14px;color:var(--muted);line-height:1.55}
-.usecase b{color:var(--ok);font-family:var(--mono);font-size:12px}
+/* ilustración: comprobante a planilla */
+.demo{margin:0;position:relative}
+.doc{position:relative;z-index:1;width:62%;background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:18px 18px 16px;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(20,36,32,.45);transform:rotate(-2.5deg);font-size:13px}
+.doc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line2);padding-bottom:10px;margin-bottom:10px}
+.doc-head b{font-stretch:118%;font-weight:700;font-size:15px}
+.doc-head span{color:var(--muted);font-size:12px}
+.doc dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px}
+.doc dt{color:var(--muted)}
+.doc dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.doc .smudge{background:linear-gradient(90deg,transparent,rgba(20,36,32,.18) 30%,rgba(20,36,32,.08) 70%,transparent);color:transparent;border-radius:3px;user-select:none}
+.sheet{position:relative;margin:-14px 0 0 18%;background:var(--sheet);border:1px solid var(--line2);border-radius:8px;overflow:hidden;box-shadow:0 22px 50px -30px rgba(20,36,32,.5)}
+.sheet table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.sheet th{text-align:left;font-weight:600;color:var(--muted);background:var(--mint);padding:9px 10px;border-bottom:1px solid var(--line2)}
+.sheet td{padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.sheet tr:last-child td{border-bottom:0}
+.sheet td.num,.sheet th.num{text-align:right}
+.sheet .ok{color:var(--green);font-weight:600}
+.sheet tr.flag td{background:linear-gradient(transparent 8%,var(--mark) 8%,var(--mark) 92%,transparent 92%)}
+.sheet tr.flag .ok{color:var(--ink)}
+.demo figcaption{margin:14px 0 0 18%;font-size:14px;color:var(--muted);line-height:1.5}
 
-/* how I work */
-.inverse{background:var(--bg2)}
-.inverse .eyebrow{color:var(--accent)}
-.journey{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.stage{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-height:220px}
-.stage .n{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line2);border-radius:4px;color:var(--muted);font:500 12px var(--mono)}
-.stage h3{margin-top:15px;color:var(--ink);font-size:16px}
-.stage p{font-size:13.5px;color:var(--muted);margin:9px 0 0;line-height:1.6}
-.stage.free{border-color:rgba(74,222,128,.35)}
-.stage.free .n{border-color:rgba(74,222,128,.5);color:var(--ok)}
-.stage.paid{border-color:rgba(255,77,0,.4)}
-.stage.paid .n{border-color:var(--accent);color:var(--accent)}
-.stage .tag{display:inline-block;margin-left:10px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);vertical-align:middle}
-.stage.free .tag{color:var(--ok)}
-.stage.paid .tag{color:var(--accent)}
-.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
-.example-item{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:var(--radius)}
-.example-item.after{border-color:rgba(74,222,128,.35)}
-.example-item h3{font-size:16px}
-.example-item p{margin-top:8px;color:var(--muted);font-size:14.5px;line-height:1.6}
-.example-note{margin-top:16px;font:400 12px var(--mono);color:var(--dim)}
-.avatar{display:block;width:160px;height:160px;border-radius:50%;object-fit:cover;border:1px solid var(--line2);margin-top:26px}
-.model-note{margin-top:22px;padding:17px 20px;border:1px solid var(--line2);border-radius:4px;color:var(--muted);font-size:14px;background:var(--panel)}
-.model-note strong{color:var(--ink);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
-.cycle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;color:var(--dim);font:500 11px var(--mono);letter-spacing:.12em;text-align:center}
+/* confianza */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(36px,4vw,56px);border-top:1px solid var(--line)}
+.trust div{display:flex;gap:10px;padding:18px 18px 0 0;color:var(--ink);font-size:15.5px;line-height:1.45}
+.trust i{font-style:normal;color:var(--green);font-weight:700}
 
-/* security */
-.security{background:var(--bg);border-top:1px solid var(--line)}
-.security-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
-.security-item{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:var(--radius)}
-.security-item h3{font-size:16px}
-.security-item p{margin-top:8px;color:var(--muted);font-size:13.5px;line-height:1.6}
+/* secciones */
+.block{padding:clamp(56px,7vw,96px) 0;border-top:1px solid var(--line)}
+.sec-head{max-width:760px;display:grid;gap:16px}
 
-/* about */
-.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(25px,5vw,60px)}
-.about p+p{margin-top:15px}
-.about h2{font-size:clamp(23px,2.6vw,30px)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
-.fact{background:var(--panel);border:1px solid var(--line);padding:17px;border-radius:var(--radius)}
-.fact b{display:block;font:700 24px var(--mono);color:var(--ink);letter-spacing:-.02em}
-.fact span{font:400 11px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.08em;line-height:1.5;display:block;margin-top:6px}
+/* servicios: lista, no tarjetas */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(28px,4vw,56px);margin-top:36px;border-top:2px solid var(--ink)}
+.card{padding:22px 0;border-bottom:1px solid var(--line)}
+.card p{color:var(--muted);font-size:16px;margin:8px 0 0;max-width:52ch}
+.card .num{display:none}
+.card.feature{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;padding:28px 0}
+.card.feature h3{font-size:23px}
+.flow{display:grid;gap:0;background:var(--sheet);border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+.flow div{padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink)}
+.flow div:last-child{border-bottom:0;background:var(--mint)}
+.flow span.k{display:inline-block;min-width:74px;color:var(--muted);font-size:14px}
+.usecases{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(28px,4vw,56px);margin-top:28px}
+.usecases-title{margin-top:40px;font-size:16px;font-weight:600}
+.usecase{padding:11px 0;display:flex;gap:10px;font-size:16px;color:var(--muted);border-bottom:1px dashed var(--line2)}
+.usecase b{color:var(--green)}
 
-/* faq */
-.faq{max-width:900px;margin:32px auto 0}
-.faq details{border-bottom:1px solid var(--line);padding:16px 2px}
-.faq summary{cursor:pointer;font:600 14.5px var(--mono);list-style:none;display:flex;gap:10px;align-items:baseline;color:var(--ink)}
+/* ejemplo */
+.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.example-item{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.example-item.after{border-color:var(--green);box-shadow:inset 0 4px 0 var(--green)}
+.example-item p{margin:10px 0 0;color:var(--muted);font-size:16px}
+.example-item.after mark{background:linear-gradient(transparent 12%,var(--mark) 12%,var(--mark) 88%,transparent 88%);color:var(--ink);padding:0 2px}
+.example-note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+/* cómo trabajo: secuencia real */
+.inverse{background:var(--mint)}
+.journey{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.5vw,32px);position:relative}
+.journey::before{content:"";position:absolute;left:22px;right:22px;top:21px;height:2px;background:var(--line2)}
+.stage{position:relative}
+.stage .n{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--paper);border:2px solid var(--line2);color:var(--muted);font-weight:700;font-stretch:118%;font-size:17px}
+.stage.free .n,.stage.paid .n{background:var(--green);border-color:var(--green);color:#fff}
+.stage .tag{display:inline-block;margin:16px 0 0;font-size:13.5px;font-weight:600;color:var(--muted);background:var(--sheet);border:1px solid var(--line2);border-radius:999px;padding:2px 10px}
+.stage.free .tag{color:var(--green);border-color:var(--green)}
+.stage h3{margin-top:10px}
+.stage p{font-size:15.5px;color:var(--muted);margin:8px 0 0}
+.model-note{margin-top:36px;padding:18px 22px;border-radius:var(--r);background:var(--sheet);color:var(--muted);font-size:16px;max-width:820px}
+.model-note strong{color:var(--ink);font-weight:600}
+
+/* seguridad */
+.security-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,56px);margin-top:32px}
+.security-item{padding:20px 0 20px 18px;border-left:3px solid var(--green);margin-bottom:14px}
+.security-item p{margin:6px 0 0;color:var(--muted);font-size:16px}
+
+/* quién soy */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start}
+.about .body-lg{color:var(--ink)}
+.avatar{display:block;width:180px;height:180px;border-radius:50%;object-fit:cover;margin-top:28px;border:4px solid var(--sheet);box-shadow:0 0 0 1px var(--line2)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border-top:2px solid var(--ink)}
+.fact{padding:16px 16px 0 0}
+.fact b{display:block;font-size:21px;font-weight:700;font-stretch:118%;color:var(--green);line-height:1.2}
+.fact span{display:block;margin-top:6px;font-size:15px;color:var(--muted);line-height:1.4}
+
+/* preguntas */
+.faq{max-width:820px;margin-top:28px;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-size:18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::before{content:"❯";color:var(--accent);font-size:11px;transition:transform .15s}
-.faq details[open] summary::before{transform:rotate(90deg)}
-.faq p{color:var(--muted);margin:11px 0 0 21px;max-width:75ch;font-size:14.5px}
+.faq summary::after{content:"+";color:var(--green);font-size:24px;line-height:1;font-weight:400}
+.faq details[open] summary::after{content:"−"}
+.faq p{color:var(--muted);margin:0 0 20px;max-width:70ch;font-size:16.5px}
 
-/* contact */
-.contact{background:var(--bg2);border-top:1px solid var(--line);padding:clamp(56px,7vw,92px) 0}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px)}
-.contact .body-lg{margin-top:18px}
-.form-card{background:var(--panel);border:1px solid var(--line2);padding:clamp(20px,3vw,30px);border-radius:var(--radius)}
-.form-card h3{font-size:17px}
-.form-card .hint{color:var(--dim);font:400 11.5px var(--mono);margin:7px 0 20px;line-height:1.6}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.field{display:grid;gap:6px;margin-bottom:13px}
-.field label{font:500 10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.field input,.field textarea,.field select{font:15px var(--font);width:100%;border:1px solid var(--line);background:var(--bg2);color:var(--ink);border-radius:4px;padding:12px 13px;min-height:46px}
-.field textarea{min-height:100px;resize:vertical}
-.field input::placeholder,.field textarea::placeholder{color:#4a4a58}
-.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,77,0,.14)}
-.check{display:flex;gap:9px;font-size:12px;color:var(--muted);margin:5px 0 13px;line-height:1.5}
-.check input{margin-top:3px;accent-color:var(--accent)}
-.micro{font:400 11px var(--mono);color:var(--dim);margin-top:10px;line-height:1.6}
-.status{display:none;margin-top:12px;padding:10px 12px;border-radius:4px;font:400 12.5px var(--mono)}
-.status.ok{display:block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.35);color:var(--ok)}
-.status.bad{display:block;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.35);color:var(--bad)}
+/* contacto */
+.contact{background:var(--ink);color:var(--paper);padding:clamp(56px,7vw,96px) 0}
+.contact h2{color:#fff}
+.contact .body-lg{margin-top:18px;color:#C9D6D1}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,64px);align-items:start}
+.form-card{background:var(--paper);color:var(--ink);padding:clamp(22px,3vw,34px);border-radius:var(--r)}
+.form-card h3{font-size:20px}
+.form-card .hint{color:var(--muted);font-size:14.5px;margin:6px 0 20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:15px;font-weight:600;color:var(--ink)}
+.field input,.field textarea{font:16px var(--font);width:100%;border:1.5px solid var(--line2);background:var(--sheet);color:var(--ink);border-radius:8px;padding:12px 13px;min-height:48px}
+.field textarea{min-height:110px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#6B7A75}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(11,107,87,.2)}
+.check{display:flex;gap:10px;font-size:14.5px;color:var(--muted);margin:6px 0 16px;line-height:1.5}
+.check input{margin-top:4px;width:18px;height:18px;accent-color:var(--green)}
+.micro{font-size:14px;color:var(--muted);margin-top:10px}
+.status{display:none;margin-top:12px;padding:11px 13px;border-radius:8px;font-size:15px}
+.status.ok{display:block;background:var(--mint);border:1px solid var(--green);color:var(--green-dark)}
+.status.bad{display:block;background:#FBECEA;border:1px solid var(--bad);color:var(--bad)}
 .hp{position:absolute;left:-9999px}
 
-/* footer */
-footer{padding:26px 0;border-top:1px solid var(--line);background:var(--bg)}
-.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:var(--dim);font:400 11.5px var(--mono);letter-spacing:.02em}
-.reveal{opacity:0;transform:translateY(12px);transition:.5s}
-.reveal.in{opacity:1;transform:none}
+/* pie */
+footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#9FB1AA;font-size:14px}
+.reveal{opacity:1}
+
+/* infografía entra/procesa/sale */
+.card.feature{grid-template-columns:1fr!important;gap:24px!important}
+.card.feature>div:first-child{max-width:62ch}
+.io{display:flex;align-items:stretch;gap:12px}
+.io-step{flex:1 1 0;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.io-h{display:flex;align-items:baseline;gap:10px}
+.io-n{font-weight:700;color:var(--green)}
+.io-h h4{margin:0;font-size:20px;font-weight:650;font-stretch:118%}
+.io-step>p{margin:auto 0 0;font-size:15px;color:var(--muted);line-height:1.5}
+.io-docs{position:relative;height:190px}
+.io-doc{position:absolute;width:146px;height:100px;box-sizing:border-box;background:var(--sheet);border:1px solid var(--line2);border-radius:8px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-size:15px;font-weight:600;box-shadow:0 10px 24px -18px rgba(20,36,32,.6)}
+.io-doc0{left:4px;top:6px;transform:rotate(-6deg)}
+.io-doc1{left:110px;top:36px;transform:rotate(4deg)}
+.io-doc2{left:32px;top:88px;transform:rotate(-2deg)}
+.io-arrow{display:flex;align-items:center;flex-shrink:0}
+.io-mid{background:var(--green);border-color:var(--green);color:#fff}
+.io-mid .io-n{color:var(--mark)}
+.io-mid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.io-mid li{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;line-height:1.35}
+.io-mid b{font-weight:650}
+.io-mid small{font-size:14px;color:#CFE6DD}
+.io-table{border:1px solid var(--line2);border-radius:8px;overflow:hidden;font-size:14px;font-variant-numeric:tabular-nums}
+.io-tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:8px 12px;border-top:1px solid var(--line)}
+.io-th{background:var(--mint);color:var(--muted);font-weight:600;border-top:0}
+.io-st{color:var(--green);font-weight:600}
+.io-tr.flag{background:var(--mark)}
+.io-tr.flag .io-st{color:var(--ink);font-weight:700}
+.io-who{display:flex;align-items:center;gap:10px;margin:auto 0 0;font-size:15px;line-height:1.45}
+/* antes / después */
+.kicker{margin:0;font-size:15px;color:var(--muted)}
+.ba{display:grid;gap:14px;margin-top:32px}
+.ba-row{display:flex;align-items:center;gap:14px}
+.ba-l{width:104px;flex-shrink:0;margin:0}
+.ba-l.after{color:var(--green)}
+.ba-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:6px;flex-grow:1;min-width:0}
+.ba-p{flex:1 1 0;min-height:88px;box-sizing:border-box;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;font-size:15px;line-height:1.3}
+.ba-p.man{background:var(--sheet);border:1px solid var(--line2)}
+.ba-p.auto{background:var(--green);color:#fff}
+.ba-p.human{flex-grow:2;background:var(--mark);font-weight:600}
+.ba-chev{color:var(--line2);display:flex;flex-shrink:0}
+.ba-row:nth-child(2) .ba-chev{color:var(--green)}
+.ba-sum{width:140px;flex-shrink:0;margin:0;font-size:15px;line-height:1.35;color:var(--muted)}
+.ba-sum b{display:block;color:var(--ink)}
+.ba-key{list-style:none;margin:4px 0 0 118px;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted)}
+.ba-key li{display:flex;align-items:center;gap:8px}
+.ba-key i{width:14px;height:14px;border-radius:4px}
+.k-auto{background:var(--green)}.k-human{background:var(--mark)}.k-man{background:var(--sheet);border:1px solid var(--line2)}
+.ba-measure{margin-top:36px;padding-top:24px;border-top:2px solid var(--ink)}
+.ba-ms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.ba-m{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:16px;align-items:flex-start}
+.ba-mi{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center}
+.ba-mi.hl{background:var(--mark)}
+.ba-m b{font-size:18px;font-weight:650}
+.ba-m p{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--muted)}
+/* mantenimiento */
+.maint{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.maint .body-lg{margin-top:20px}
+.mpath{list-style:none;margin:32px 0 0;padding:0}
+.mpath li{display:flex;gap:16px;position:relative;padding-bottom:22px}
+.mpath li:not(:last-child)::before{content:"";position:absolute;left:17px;top:38px;bottom:0;width:2px;background:var(--line2)}
+.mp-n{width:36px;height:36px;flex-shrink:0;border-radius:50%;background:var(--paper);border:2px solid var(--line2);display:grid;place-items:center;font-weight:700;color:var(--muted);box-sizing:border-box}
+.mpath li.on .mp-n{background:var(--green);border-color:var(--green);color:#fff}
+.mpath b{font-size:18px;font-weight:650}
+.mpath p{margin:2px 0 0;font-size:15px;color:var(--muted)}
+.mcard{background:var(--sheet);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.mcard-h{background:var(--green);color:#fff;padding:22px 28px;display:grid;gap:4px}
+.mcard-h h3{font-size:22px}
+.mcard-h span{font-size:15px;color:#CFE6DD}
+.minc{list-style:none;margin:0;padding:8px 28px 4px}
+.minc li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}
+.minc li:last-child{border-bottom:0}
+.minc li svg{flex-shrink:0}
+.minc b{font-weight:650}
+.minc span span{color:var(--muted)}
+.mno{margin:4px 28px 28px;background:var(--paper);border-radius:10px;padding:16px 18px}
+.mno b{font-size:15px;font-weight:650}
+.mno p{margin:4px 0 0;font-size:15px;color:var(--muted)}
+@media(max-width:970px){
+.io{flex-direction:column}
+.io-arrow{justify-content:center;transform:rotate(90deg)}
+.ba-row{flex-direction:column;align-items:stretch}
+.ba-l,.ba-sum{width:auto}
+.ba-steps{flex-direction:column;align-items:stretch}
+.ba-chev{transform:rotate(90deg);justify-content:center}
+.ba-p{min-height:52px;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
+.ba-key{margin-left:0}
+.ba-ms,.maint{grid-template-columns:1fr}
+}
 
 @media(max-width:970px){
 .hero-grid,.about,.contact-grid{grid-template-columns:1fr}
-.journey{grid-template-columns:1fr 1fr}
-.grid{grid-template-columns:1fr 1fr}
+.demo{max-width:560px}
+.trust{grid-template-columns:1fr}
+.journey{grid-template-columns:1fr 1fr;row-gap:32px}
+.journey::before{display:none}
 .card.feature{grid-template-columns:1fr}
 .security-grid,.example-grid{grid-template-columns:1fr}
-nav{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--bg);padding:12px var(--pad);border-bottom:1px solid var(--line)}
+nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);padding:10px var(--pad) 16px;border-bottom:1px solid var(--line)}
 nav.open{display:flex}
-nav a{padding:12px 8px;font-size:13px}
+nav a{padding:13px 8px;font-size:16px}
 .burger{display:block;margin-left:auto}
 .actions .btn{display:none}
 }
 @media(max-width:640px){
 .grid,.usecases,.facts,.journey,.form-row{grid-template-columns:1fr}
 .card.feature{grid-column:auto}
-.actions{gap:5px}
-.hero-actions .btn{width:100%}
-.hero h1 em::after{display:none}
+.hero-actions .btn.primary{width:100%}
+.doc{width:78%}
+.sheet{margin-left:8%}
+.demo figcaption{margin-left:8%}
+.sheet th:nth-child(2),.sheet td:nth-child(2){display:none}
 }
-@media(prefers-reduced-motion:reduce){
-html{scroll-behavior:auto}
-.reveal{opacity:1;transform:none;transition:none}
-.hero h1 em::after{animation:none}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Ir al contenido</a>
 <header class="topbar" id="topbar"><div class="wrap topbar-in">
-<a class="brand" href="#top"><span class="mark" aria-hidden="true">❯</span><span>Consultor<b>IA</b></span></a>
+<a class="brand" href="#top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B6B57"/><rect x="14" y="17" width="30" height="6" rx="3" fill="#fff"/><rect x="10" y="29" width="44" height="6" rx="3" fill="#F4DC6B"/><rect x="14" y="41" width="24" height="6" rx="3" fill="#fff"/></svg><span>Patricio Ingratta</span></a>
 <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
-<nav id="nav"><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a><a href="#como" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</a><a href="#seguridad" data-es="Seguridad" data-en="Safety">Seguridad</a><a href="#quien" data-es="Quién soy" data-en="About">Quién soy</a><a href="#faq">FAQ</a></nav>
+<nav id="nav"><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a><a href="#como" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</a><a href="#mantenimiento" data-es="Mantenimiento" data-en="Maintenance">Mantenimiento</a><a href="#seguridad" data-es="Seguridad" data-en="Safety">Seguridad</a><a href="#quien" data-es="Quién soy" data-en="About">Quién soy</a><a href="#faq">FAQ</a></nav>
 <div class="actions"><button class="lang" id="lang">EN</button><a class="btn primary" href="#contacto" data-es="Escribime" data-en="Get in touch">Escribime</a></div>
 </div></header>
 <main id="main">
 <section class="hero" id="top"><div class="wrap hero-grid"><div>
-<span class="chip"><span class="dot"></span><span data-es="Automatización e IA aplicada a procesos reales" data-en="Automation and AI applied to real processes">Automatización e IA aplicada a procesos reales</span></span>
-<h1><span data-es="Recuperá las horas que hoy se van" data-en="Win back the hours lost">Recuperá las horas que hoy se van</span><br><em data-es="en tareas repetitivas." data-en="to repetitive tasks.">en tareas repetitivas.</em></h1>
+<h1><span data-es="Recuperá las horas que hoy se van" data-en="Win back the hours lost">Recuperá las horas que hoy se van</span> <em data-es="en tareas repetitivas." data-en="to repetitive tasks.">en tareas repetitivas.</em></h1>
 <p class="body-lg" data-es="Tomo un proceso que hoy hacés a mano y te lo devuelvo funcionando, medido y documentado. Empezamos por uno solo, chico y verificable, y seguimos solo si funcionó." data-en="I take a process you do by hand today and hand it back working, measured and documented. We start with just one, small and verifiable, and only continue if it worked.">Tomo un proceso que hoy hacés a mano y te lo devuelvo funcionando, medido y documentado. Empezamos por uno solo, chico y verificable, y seguimos solo si funcionó.</p>
 <p class="examples-title" data-es="Algunos ejemplos:" data-en="A few examples:">Algunos ejemplos:</p>
 <ul class="examples"><li data-es="Un estudio que copia datos de comprobantes a una planilla." data-en="A practice copying invoice data into a spreadsheet.">Un estudio que copia datos de comprobantes a una planilla.</li><li data-es="Una inmobiliaria que persigue documentación faltante por email." data-en="A real estate agency chasing missing documents by email.">Una inmobiliaria que persigue documentación faltante por email.</li><li data-es="Un consultorio que confirma turnos uno por uno." data-en="A clinic confirming appointments one by one.">Un consultorio que confirma turnos uno por uno.</li><li data-es="Un comercio que arma el mismo reporte de ventas todas las semanas." data-en="A shop building the same sales report every week.">Un comercio que arma el mismo reporte de ventas todas las semanas.</li></ul>
-<div class="hero-actions"><a class="btn primary" href="#contacto"><span data-es="Contame tu caso" data-en="Tell me about your case">Contame tu caso</span> →</a><a class="btn text" href="#como" data-es="Conocer cómo trabajo" data-en="See how I work">Conocer cómo trabajo</a></div>
+<div class="hero-actions"><a class="btn primary" href="#contacto"><span data-es="Contame tu caso" data-en="Tell me about your case">Contame tu caso</span></a><a class="btn text" href="#como" data-es="Conocer cómo trabajo" data-en="See how I work">Conocer cómo trabajo</a></div>
 <p class="hero-note" data-es="Primera conversación de 45 minutos, sin cargo." data-en="First 45-minute conversation, free of charge.">Primera conversación de 45 minutos, sin cargo.</p>
-</div><div class="trust"><div><i>✓</i><span data-es="Más de 20 años en productos, procesos y tecnología" data-en="20+ years in product, process and technology">Más de 20 años en productos, procesos y tecnología</span></div><div><i>✓</i><span data-es="Un proceso por vez, con resultados medidos" data-en="One process at a time, with measured results">Un proceso por vez, con resultados medidos</span></div><div><i>✓</i><span data-es="Revisión humana, trazabilidad y alcance claro" data-en="Human review, traceability and clear scope">Revisión humana, trazabilidad y alcance claro</span></div></div></div></section>
+</div><figure class="demo" aria-label="Ilustración: los datos de un comprobante pasan a una planilla y lo dudoso queda marcado para revisar">
+<div class="doc" aria-hidden="true"><div class="doc-head"><b data-es="Factura" data-en="Invoice">Factura</b><span>0003-00001284</span></div><dl><dt data-es="Proveedor" data-en="Supplier">Proveedor</dt><dd>Papelera Sur</dd><dt data-es="Fecha" data-en="Date">Fecha</dt><dd>12/11/2026</dd><dt data-es="Importe" data-en="Amount">Importe</dt><dd>$ 48.300,00</dd></dl></div>
+<div class="sheet" aria-hidden="true"><table><thead><tr><th data-es="Fecha" data-en="Date">Fecha</th><th data-es="Proveedor" data-en="Supplier">Proveedor</th><th class="num" data-es="Importe" data-en="Amount">Importe</th><th data-es="Estado" data-en="Status">Estado</th></tr></thead><tbody>
+<tr><td>12/11</td><td>Papelera Sur</td><td class="num">48.300,00</td><td class="ok" data-es="Listo" data-en="Done">Listo</td></tr>
+<tr><td>12/11</td><td>Gas Norte</td><td class="num">21.940,50</td><td class="ok" data-es="Listo" data-en="Done">Listo</td></tr>
+<tr class="flag"><td>13/11</td><td>Imprenta Delta</td><td class="num">¿6.950,00?</td><td class="ok" data-es="Revisar" data-en="Review">Revisar</td></tr>
+<tr><td>13/11</td><td>Fletes Río</td><td class="num">112.000,00</td><td class="ok" data-es="Listo" data-en="Done">Listo</td></tr>
+</tbody></table></div>
+<figcaption data-es="Así se ve un proceso automatizado: los datos llegan ordenados y lo dudoso queda marcado para que lo revise una persona." data-en="What an automated process looks like: data arrives organised and anything doubtful is flagged for a person to review.">Así se ve un proceso automatizado: los datos llegan ordenados y lo dudoso queda marcado para que lo revise una persona.</figcaption></figure></div><div class="wrap"><div class="trust"><div><i>✓</i><span data-es="Más de 20 años en productos, procesos y tecnología" data-en="20+ years in product, process and technology">Más de 20 años en productos, procesos y tecnología</span></div><div><i>✓</i><span data-es="Un proceso por vez, con resultados medidos" data-en="One process at a time, with measured results">Un proceso por vez, con resultados medidos</span></div><div><i>✓</i><span data-es="Revisión humana, trazabilidad y alcance claro" data-en="Human review, traceability and clear scope">Revisión humana, trazabilidad y alcance claro</span></div></div></div></section>
 
-<section class="block" id="servicios"><div class="wrap reveal"><div class="sec-head"><span class="eyebrow" data-es="Problemas y servicios" data-en="Problems and services">Problemas y servicios</span><h2 data-es="Automatizar no es agregar tecnología. Es quitar trabajo innecesario." data-en="Automation is not adding technology. It is removing unnecessary work.">Automatizar no es agregar tecnología. Es quitar trabajo innecesario.</h2><p class="body-lg" data-es="No todo necesita un agente. La solución puede combinar reglas, automatizaciones, integraciones e IA según el proceso, sus riesgos y la forma en que trabajan las personas." data-en="Not everything needs an agent. A solution may combine rules, automations, integrations and AI depending on the process, its risks and how people work.">No todo necesita un agente. La solución puede combinar reglas, automatizaciones, integraciones e IA según el proceso, sus riesgos y la forma en que trabajan las personas.</p></div>
-<div class="grid"><article class="card feature"><div><span class="num">01</span><h3 data-es="Transformación de documentos y datos" data-en="Document and data transformation">Transformación de documentos y datos</h3><p data-es="Clasificación de archivos, extracción de campos, normalización, validación y generación de salidas estructuradas listas para revisar." data-en="File classification, field extraction, normalisation, validation and structured outputs ready for review.">Clasificación de archivos, extracción de campos, normalización, validación y generación de salidas estructuradas listas para revisar.</p></div><div class="flow"><div><span>IN</span>PDFs, emails, spreadsheets</div><div><span>AUTO</span><span data-es="Clasificación · extracción · validación" data-en="Classification · extraction · validation">Clasificación · extracción · validación</span></div><div><span>OUT</span><span data-es="Datos organizados para revisión" data-en="Organised data for review">Datos organizados para revisión</span></div></div></article>
+<section class="block" id="servicios"><div class="wrap reveal"><div class="sec-head"><h2 data-es="Automatizar no es agregar tecnología. Es quitar trabajo innecesario." data-en="Automation is not adding technology. It is removing unnecessary work.">Automatizar no es agregar tecnología. Es quitar trabajo innecesario.</h2><p class="body-lg" data-es="No todo necesita un agente. La solución puede combinar reglas, automatizaciones, integraciones e IA según el proceso, sus riesgos y la forma en que trabajan las personas." data-en="Not everything needs an agent. A solution may combine rules, automations, integrations and AI depending on the process, its risks and how people work.">No todo necesita un agente. La solución puede combinar reglas, automatizaciones, integraciones e IA según el proceso, sus riesgos y la forma en que trabajan las personas.</p></div>
+<div class="grid"><article class="card feature"><div><span class="num">01</span><h3 data-es="Transformación de documentos y datos" data-en="Document and data transformation">Transformación de documentos y datos</h3><p data-es="Clasificación de archivos, extracción de campos, normalización, validación y generación de salidas estructuradas listas para revisar." data-en="File classification, field extraction, normalisation, validation and structured outputs ready for review.">Clasificación de archivos, extracción de campos, normalización, validación y generación de salidas estructuradas listas para revisar.</p></div><div class="io" role="group" aria-label="Cómo se transforman los documentos: entran, se procesan y salen ordenados"><div class="io-step"><div class="io-h"><span class="io-n">1</span><h4 data-es="Entra" data-en="In">Entra</h4></div><div class="io-docs" aria-hidden="true"><div class="io-doc io-doc0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A3322A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span data-es="PDFs" data-en="PDFs">PDFs</span></div><div class="io-doc io-doc1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-es="Emails" data-en="Emails">Emails</span></div><div class="io-doc io-doc2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg><span data-es="Planillas" data-en="Spreadsheets">Planillas</span></div></div><p data-es="Como llega hoy, sin cambiar cómo trabaja tu equipo." data-en="As it arrives today, without changing how your team works.">Como llega hoy, sin cambiar cómo trabaja tu equipo.</p></div><div class="io-arrow" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="io-step io-mid"><div class="io-h"><span class="io-n">2</span><h4 data-es="Se procesa" data-en="Processed">Se procesa</h4></div><ul><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3z"/></svg><span><b data-es="Clasifica" data-en="Classifies">Clasifica</b><br><small data-es="qué es cada documento" data-en="what each document is">qué es cada documento</small></span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span><b data-es="Extrae" data-en="Extracts">Extrae</b><br><small data-es="fecha, CUIT, importe y más" data-en="date, tax ID, amount and more">fecha, CUIT, importe y más</small></span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b data-es="Valida" data-en="Validates">Valida</b><br><small data-es="con tus reglas, y marca lo dudoso" data-en="with your rules, and flags doubts">con tus reglas, y marca lo dudoso</small></span></li></ul></div><div class="io-arrow" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="io-step"><div class="io-h"><span class="io-n">3</span><h4 data-es="Sale" data-en="Out">Sale</h4></div><div class="io-table" aria-hidden="true"><div class="io-tr io-th"><span data-es="Fecha" data-en="Date">Fecha</span><span data-es="Importe" data-en="Amount">Importe</span><span data-es="Estado" data-en="Status">Estado</span></div><div class="io-tr"><span>12/11</span><span>48.300,00</span><span class="io-st" data-es="Listo" data-en="Done">Listo</span></div><div class="io-tr flag"><span>13/11</span><span>¿6.950,00?</span><span class="io-st" data-es="Revisar" data-en="Review">Revisar</span></div><div class="io-tr"><span>13/11</span><span>112.000,00</span><span class="io-st" data-es="Listo" data-en="Done">Listo</span></div></div><p class="io-who"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#142420" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Datos ordenados. Una persona revisa solo lo marcado." data-en="Organised data. A person reviews only what is flagged.">Datos ordenados. Una persona revisa solo lo marcado.</span></p></div></div></article>
 <article class="card"><span class="num">02</span><h3 data-es="Automatización de procesos" data-en="Process automation">Automatización de procesos</h3><p data-es="Conexión de herramientas, alertas, seguimientos y actualización de información sin copiar y pegar." data-en="Tool connections, alerts, follow-ups and information updates without copying and pasting.">Conexión de herramientas, alertas, seguimientos y actualización de información sin copiar y pegar.</p></article>
 <article class="card"><span class="num">03</span><h3 data-es="Asistentes y agentes" data-en="Assistants and agents">Asistentes y agentes</h3><p data-es="Consulta de documentación, preparación de respuestas y ejecución controlada de acciones." data-en="Document search, draft responses and controlled execution of actions.">Consulta de documentación, preparación de respuestas y ejecución controlada de acciones.</p></article>
 <article class="card"><span class="num">04</span><h3 data-es="Implementación y adopción" data-en="Implementation and adoption">Implementación y adopción</h3><p data-es="Pruebas, puesta en vivo, capacitación, instructivos y documentación para que la solución pueda utilizarse y mantenerse." data-en="Testing, go-live, training and documentation so the solution can be used and maintained.">Pruebas, puesta en vivo, capacitación, instructivos y documentación para que la solución pueda utilizarse y mantenerse.</p></article>
 <article class="card"><span class="num">05</span><h3 data-es="Capacitación" data-en="Training">Capacitación</h3><p data-es="Talleres cortos para que tu equipo use IA en sus tareas de todos los días: redactar, resumir, buscar en documentos y revisar resultados con criterio." data-en="Short workshops so your team can use AI in everyday tasks: drafting, summarising, searching documents and reviewing results with judgement.">Talleres cortos para que tu equipo use IA en sus tareas de todos los días: redactar, resumir, buscar en documentos y revisar resultados con criterio.</p></article></div>
-<div class="usecases"><div class="usecase"><b>✓</b><span data-es="Datos de facturas o formularios convertidos en una planilla" data-en="Invoice or form data converted into a spreadsheet">Datos de facturas o formularios convertidos en una planilla</span></div><div class="usecase"><b>✓</b><span data-es="Control de documentación faltante y seguimiento" data-en="Missing document checks and follow-up">Control de documentación faltante y seguimiento</span></div><div class="usecase"><b>✓</b><span data-es="Resumen de reuniones, decisiones y próximas acciones" data-en="Meeting summaries, decisions and next actions">Resumen de reuniones, decisiones y próximas acciones</span></div><div class="usecase"><b>✓</b><span data-es="Reportes recurrentes y búsqueda sobre documentación interna" data-en="Recurring reports and internal knowledge search">Reportes recurrentes y búsqueda sobre documentación interna</span></div></div>
+<p class="usecases-title" data-es="Resultados típicos:" data-en="Typical results:">Resultados típicos:</p><div class="usecases"><div class="usecase"><b>✓</b><span data-es="Datos de facturas o formularios convertidos en una planilla" data-en="Invoice or form data converted into a spreadsheet">Datos de facturas o formularios convertidos en una planilla</span></div><div class="usecase"><b>✓</b><span data-es="Control de documentación faltante y seguimiento" data-en="Missing document checks and follow-up">Control de documentación faltante y seguimiento</span></div><div class="usecase"><b>✓</b><span data-es="Resumen de reuniones, decisiones y próximas acciones" data-en="Meeting summaries, decisions and next actions">Resumen de reuniones, decisiones y próximas acciones</span></div><div class="usecase"><b>✓</b><span data-es="Reportes recurrentes y búsqueda sobre documentación interna" data-en="Recurring reports and internal knowledge search">Reportes recurrentes y búsqueda sobre documentación interna</span></div></div>
 </div></section>
 
-<section class="block" id="ejemplo"><div class="wrap reveal"><div class="sec-head"><span class="eyebrow" data-es="Ejemplo ilustrativo" data-en="Illustrative example">Ejemplo ilustrativo</span><h2 data-es="Comprobantes que llegan por email." data-en="Invoices arriving by email.">Comprobantes que llegan por email.</h2></div>
-<div class="example-grid"><div class="example-item"><h3 data-es="Antes" data-en="Before">Antes</h3><p data-es="Alguien abre cada email, descarga el PDF, copia CUIT, fecha e importe a una planilla y revisa a ojo que no falte nada." data-en="Someone opens each email, downloads the PDF, copies tax ID, date and amount into a spreadsheet and checks by eye that nothing is missing.">Alguien abre cada email, descarga el PDF, copia CUIT, fecha e importe a una planilla y revisa a ojo que no falte nada.</p></div><div class="example-item after"><h3 data-es="Después" data-en="After">Después</h3><p data-es="Los comprobantes se guardan solos en una carpeta, el sistema extrae los datos y marca los dudosos. La persona revisa solo los marcados y aprueba." data-en="Invoices are saved to a folder automatically, the system extracts the data and flags doubtful ones. The person reviews only the flagged items and approves.">Los comprobantes se guardan solos en una carpeta, el sistema extrae los datos y marca los dudosos. La persona revisa solo los marcados y aprueba.</p></div><div class="example-item"><h3 data-es="Qué medimos en un piloto real" data-en="What we measure in a real pilot">Qué medimos en un piloto real</h3><p data-es="Tiempo por comprobante, errores y cuántos necesitan revisión manual." data-en="Time per invoice, errors and how many need manual review.">Tiempo por comprobante, errores y cuántos necesitan revisión manual.</p></div></div>
+<section class="block" id="ejemplo"><div class="wrap reveal"><div class="sec-head"><p class="kicker" data-es="Ejemplo ilustrativo" data-en="Illustrative example">Ejemplo ilustrativo</p><h2 data-es="Comprobantes que llegan por email." data-en="Invoices arriving by email.">Comprobantes que llegan por email.</h2></div>
+<div class="ba"><div class="ba-row"><h3 class="ba-l" data-es="Antes" data-en="Before">Antes</h3><ol class="ba-steps"><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Abrir cada email" data-en="Open each email">Abrir cada email</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Descargar el PDF" data-en="Download the PDF">Descargar el PDF</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Copiar CUIT, fecha e importe" data-en="Copy tax ID, date and amount">Copiar CUIT, fecha e importe</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Pegar en la planilla" data-en="Paste into the spreadsheet">Pegar en la planilla</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Revisar todo a ojo" data-en="Check everything by eye">Revisar todo a ojo</span></li></ol><p class="ba-sum"><b data-es="5 pasos" data-en="5 steps">5 pasos</b> <span data-es="a mano, por cada comprobante" data-en="by hand, for every invoice">a mano, por cada comprobante</span></p></div><div class="ba-row"><h3 class="ba-l after" data-es="Después" data-en="After">Después</h3><ol class="ba-steps"><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3z"/></svg><span data-es="Se guarda solo en una carpeta" data-en="Saved to a folder automatically">Se guarda solo en una carpeta</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span data-es="Se extraen los datos" data-en="Data is extracted">Se extraen los datos</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-es="Se marcan los dudosos" data-en="Doubtful ones are flagged">Se marcan los dudosos</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p human"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#142420" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Revisás solo los marcados y aprobás" data-en="You review only the flagged ones and approve">Revisás solo los marcados y aprobás</span></li></ol><p class="ba-sum"><b data-es="1 paso" data-en="1 step">1 paso</b> <span data-es="a mano, solo en los dudosos" data-en="by hand, only on doubtful ones">a mano, solo en los dudosos</span></p></div><ul class="ba-key"><li><i class="k-auto"></i><span data-es="Automático" data-en="Automatic">Automático</span></li><li><i class="k-human"></i><span data-es="Lo hace una persona, con criterio" data-en="Done by a person, with judgement">Lo hace una persona, con criterio</span></li><li><i class="k-man"></i><span data-es="Trabajo manual repetitivo" data-en="Repetitive manual work">Trabajo manual repetitivo</span></li></ul></div><div class="ba-measure"><h3 data-es="Qué medimos en un piloto real" data-en="What we measure in a real pilot">Qué medimos en un piloto real</h3><div class="ba-ms"><div class="ba-m"><span class="ba-mi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span><div><b data-es="Tiempo por comprobante" data-en="Time per invoice">Tiempo por comprobante</b><p data-es="Cuánto tarda hoy y cuánto tarda con el proceso nuevo." data-en="How long it takes today and with the new process.">Cuánto tarda hoy y cuánto tarda con el proceso nuevo.</p></div></div><div class="ba-m"><span class="ba-mi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b data-es="Errores" data-en="Errors">Errores</b><p data-es="Datos mal copiados o faltantes, antes y después." data-en="Miscopied or missing data, before and after.">Datos mal copiados o faltantes, antes y después.</p></div></div><div class="ba-m"><span class="ba-mi hl"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#142420" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><div><b data-es="Revisión manual" data-en="Manual review">Revisión manual</b><p data-es="Cuántos casos todavía necesitan que los mire una persona." data-en="How many cases still need a person to look at them.">Cuántos casos todavía necesitan que los mire una persona.</p></div></div></div></div>
 <p class="example-note" data-es="Ejemplo con fines ilustrativos. Los resultados dependen de cada proceso." data-en="Illustrative example. Results depend on each process.">Ejemplo con fines ilustrativos. Los resultados dependen de cada proceso.</p>
 </div></section>
 
-<section class="block inverse" id="como"><div class="wrap reveal"><div class="sec-head"><span class="eyebrow" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</span><h2 data-es="Cuatro etapas, con decisiones claras en cada una." data-en="Four stages, with clear decisions at each one.">Cuatro etapas, con decisiones claras en cada una.</h2><p class="body-lg" data-es="Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir." data-en="We move one stage at a time. At each one you know what you will get and decide whether to continue.">Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir.</p></div>
+<section class="block inverse" id="como"><div class="wrap reveal"><div class="sec-head"><h2 data-es="Cuatro etapas, con decisiones claras en cada una." data-en="Four stages, with clear decisions at each one.">Cuatro etapas, con decisiones claras en cada una.</h2><p class="body-lg" data-es="Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir." data-en="We move one stage at a time. At each one you know what you will get and decide whether to continue.">Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir.</p></div>
 <div class="journey">
 <div class="stage free"><span class="n">1</span><span class="tag" data-es="sin cargo" data-en="free">sin cargo</span><h3 data-es="Reunión inicial" data-en="Intro call">Reunión inicial</h3><p data-es="45 minutos para conocer tu negocio y ver si hay un proceso que valga la pena mejorar." data-en="45 minutes to get to know your business and see whether there is a process worth improving.">45 minutos para conocer tu negocio y ver si hay un proceso que valga la pena mejorar.</p></div>
 <div class="stage paid"><span class="n">2</span><span class="tag" data-es="pago" data-en="paid">pago</span><h3 data-es="Diagnóstico" data-en="Assessment">Diagnóstico</h3><p data-es="En 3 a 5 días relevo cómo trabajás, priorizo oportunidades y te propongo un caso piloto con alcance y presupuesto cerrados. Si avanzás con el piloto, el diagnóstico no tiene cargo." data-en="In 3 to 5 days I map how you work, prioritise opportunities and propose a pilot with fixed scope and budget. If you go ahead with the pilot, the assessment is free.">En 3 a 5 días relevo cómo trabajás, priorizo oportunidades y te propongo un caso piloto con alcance y presupuesto cerrados. Si avanzás con el piloto, el diagnóstico no tiene cargo.</p></div>
 <div class="stage paid"><span class="n">3</span><span class="tag" data-es="pago" data-en="paid">pago</span><h3 data-es="Piloto" data-en="Pilot">Piloto</h3><p data-es="Automatizo un solo proceso de punta a punta, en 1 a 3 semanas. Antes de construir aprobás el diseño por escrito; al final lo medimos y lo documentamos." data-en="I automate a single process end to end in 1 to 3 weeks. You approve the design in writing before I build; at the end we measure and document it.">Automatizo un solo proceso de punta a punta, en 1 a 3 semanas. Antes de construir aprobás el diseño por escrito; al final lo medimos y lo documentamos.</p></div>
-<div class="stage opt"><span class="n">4</span><span class="tag" data-es="opcional" data-en="optional">opcional</span><h3 data-es="Extensiones y mantenimiento" data-en="Extensions and maintenance">Extensiones y mantenimiento</h3><p data-es="Si el piloto funcionó, sumamos otros procesos con el mismo formato y, si querés, monitoreo y ajustes mensuales." data-en="If the pilot worked, we add more processes in the same format and, if you want, monthly monitoring and adjustments.">Si el piloto funcionó, sumamos otros procesos con el mismo formato y, si querés, monitoreo y ajustes mensuales.</p></div>
-</div><div class="model-note"><strong data-es="Modelo comercial:" data-en="Commercial model:">Modelo comercial:</strong> <span data-es="cobro por etapa y por proyecto cerrado, nunca por hora. Herramientas, licencias y consumo de IA se presupuestan aparte y, cuando se puede, quedan a tu nombre." data-en="I charge per stage and per fixed-scope project, never by the hour. Tools, licences and AI usage are budgeted separately and, where possible, held in your name.">cobro por etapa y por proyecto cerrado, nunca por hora. Herramientas, licencias y consumo de IA se presupuestan aparte y, cuando se puede, quedan a tu nombre.</span></div></div></section>
+<div class="stage paid"><span class="n">4</span><span class="tag" data-es="abono fijo" data-en="fixed fee">abono fijo</span><h3 data-es="Mantenimiento mensual" data-en="Monthly maintenance">Mantenimiento mensual</h3><p data-es="Después del piloto, la solución queda funcionando con un abono fijo que incluye soporte y herramientas. Cada proceso nuevo se suma como extensión." data-en="After the pilot, the solution keeps running on a fixed monthly fee that includes support and tools. Each new process is added as an extension.">Después del piloto, la solución queda funcionando con un abono fijo que incluye soporte y herramientas. Cada proceso nuevo se suma como extensión.</p></div>
+</div><div class="model-note"><strong data-es="Modelo comercial:" data-en="Commercial model:">Modelo comercial:</strong> <span data-es="cobro por etapa y por proyecto cerrado, nunca por hora. Después del piloto, un abono mensual fijo cubre el soporte y el costo de las herramientas." data-en="I charge per stage and per fixed-scope project, never by the hour. After the pilot, a fixed monthly fee covers support and the cost of tools.">cobro por etapa y por proyecto cerrado, nunca por hora. Después del piloto, un abono mensual fijo cubre el soporte y el costo de las herramientas.</span></div></div></section>
 
-<section class="block security" id="seguridad"><div class="wrap reveal"><div class="sec-head"><span class="eyebrow" data-es="Seguridad y control" data-en="Safety and control">Seguridad y control</span><h2 data-es="Automatizar sin perder el control." data-en="Automate without losing control.">Automatizar sin perder el control.</h2><p class="body-lg" data-es="La autonomía no siempre es el objetivo. En procesos sensibles, la solución debe ayudar a trabajar mejor manteniendo controles, trazabilidad y capacidad de revisión." data-en="Autonomy is not always the goal. In sensitive processes, the solution should help people work better while preserving controls, traceability and review.">La autonomía no siempre es el objetivo. En procesos sensibles, la solución debe ayudar a trabajar mejor manteniendo controles, trazabilidad y capacidad de revisión.</p></div><div class="security-grid"><div class="security-item"><h3 data-es="Revisión humana" data-en="Human review">Revisión humana</h3><p data-es="Las decisiones profesionales, fiscales, financieras o de negocio permanecen en manos de personas responsables." data-en="Professional, tax, financial and business decisions remain with accountable people.">Las decisiones profesionales, fiscales, financieras o de negocio permanecen en manos de personas responsables.</p></div><div class="security-item"><h3 data-es="Datos mínimos y separados" data-en="Minimum, separated data">Datos mínimos y separados</h3><p data-es="Se utiliza sólo la información necesaria y se administran cuentas, accesos y datos por cliente." data-en="Only necessary information is used, with client-specific accounts, access and data separation.">Se utiliza sólo la información necesaria y se administran cuentas, accesos y datos por cliente.</p></div><div class="security-item"><h3 data-es="Pruebas controladas" data-en="Controlled testing">Pruebas controladas</h3><p data-es="Se comienza con copias, muestras o ambientes de prueba, preservando los documentos originales." data-en="Work begins with copies, samples or test environments while preserving original documents.">Se comienza con copias, muestras o ambientes de prueba, preservando los documentos originales.</p></div><div class="security-item"><h3 data-es="Trazabilidad y reversibilidad" data-en="Traceability and reversibility">Trazabilidad y reversibilidad</h3><p data-es="Las ejecuciones, errores y correcciones deben poder identificarse; las acciones sensibles deben poder detenerse o revertirse." data-en="Runs, errors and corrections should be identifiable, and sensitive actions should be stoppable or reversible.">Las ejecuciones, errores y correcciones deben poder identificarse; las acciones sensibles deben poder detenerse o revertirse.</p></div></div></div></section>
+<section class="block" id="mantenimiento"><div class="wrap maint"><div><h2 data-es="Mantenimiento: un abono fijo, sin sorpresas" data-en="Maintenance: one fixed fee, no surprises">Mantenimiento: un abono fijo, sin sorpresas</h2><p class="body-lg" data-es="Después del piloto, tu solución sigue funcionando con un abono mensual fijo. Incluye el soporte y el costo de las herramientas: no tenés que contratar ni pagar nada por separado." data-en="After the pilot, your solution keeps running on a fixed monthly fee. It includes support and the cost of tools: you do not need to sign up for or pay for anything separately.">Después del piloto, tu solución sigue funcionando con un abono mensual fijo. Incluye el soporte y el costo de las herramientas: no tenés que contratar ni pagar nada por separado.</p><ol class="mpath"><li class=""><span class="mp-n">1</span><div><b data-es="Piloto" data-en="Pilot">Piloto</b><p data-es="Automatizamos un proceso y lo medimos." data-en="We automate one process and measure it.">Automatizamos un proceso y lo medimos.</p></div></li><li class="on"><span class="mp-n">2</span><div><b data-es="Mantenimiento mensual fijo" data-en="Fixed monthly maintenance">Mantenimiento mensual fijo</b><p data-es="Funciona todos los días, con soporte y herramientas incluidas." data-en="It runs every day, with support and tools included.">Funciona todos los días, con soporte y herramientas incluidas.</p></div></li><li class=""><span class="mp-n">3</span><div><b data-es="Extensiones, cuando las necesites" data-en="Extensions, when you need them">Extensiones, cuando las necesites</b><p data-es="Cada proceso nuevo se presupuesta aparte." data-en="Each new process is quoted separately.">Cada proceso nuevo se presupuesta aparte.</p></div></li></ol></div><div class="mcard"><div class="mcard-h"><h3 data-es="Qué incluye el abono" data-en="What the fee includes">Qué incluye el abono</h3><span data-es="Un solo pago mensual, siempre el mismo" data-en="One monthly payment, always the same">Un solo pago mensual, siempre el mismo</span></div><ul class="minc"><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg><span><b data-es="Soporte y consultas" data-en="Support and questions">Soporte y consultas</b><br><span data-es="Asincrónico, por WhatsApp o email: si algo no anda o tenés una duda, me escribís." data-en="Asynchronous, by WhatsApp or email: if something is not working or you have a question, you write to me.">Asincrónico, por WhatsApp o email: si algo no anda o tenés una duda, me escribís.</span></span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><span><b data-es="Monitoreo y corrección de fallas" data-en="Monitoring and fixes">Monitoreo y corrección de fallas</b><br><span data-es="Reviso que el proceso siga funcionando y lo arreglo si falla." data-en="I check that the process keeps working and fix it if it fails.">Reviso que el proceso siga funcionando y lo arreglo si falla.</span></span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span><b data-es="Ajustes menores" data-en="Minor adjustments">Ajustes menores</b><br><span data-es="Cambios chicos de reglas, campos o formatos." data-en="Small changes to rules, fields or formats.">Cambios chicos de reglas, campos o formatos.</span></span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg><span><b data-es="Herramientas incluidas" data-en="Tools included">Herramientas incluidas</b><br><span data-es="Licencias, consumo de IA y alojamiento, dentro del volumen de uso acordado en la propuesta." data-en="Licences, AI usage and hosting, within the usage volume agreed in the proposal.">Licencias, consumo de IA y alojamiento, dentro del volumen de uso acordado en la propuesta.</span></span></li></ul><div class="mno"><b data-es="No incluye" data-en="Not included">No incluye</b><p data-es="Procesos, integraciones o funciones nuevas. Se presupuestan como una extensión." data-en="New processes, integrations or features. They are quoted as an extension.">Procesos, integraciones o funciones nuevas. Se presupuestan como una extensión.</p></div></div></div></section>
 
-<section class="block" id="quien"><div class="wrap reveal about"><div><span class="eyebrow" data-es="Quién soy" data-en="About">Quién soy</span><h2 style="margin-top:12px" data-es="Experiencia para conectar negocio, personas y tecnología." data-en="Experience connecting business, people and technology.">Experiencia para conectar negocio, personas y tecnología.</h2><img class="avatar" src="img/patricio.jpg" width="160" height="160" alt="Patricio Ingratta"></div><div><p class="body-lg" data-es="Soy Patricio Ingratta. Hace más de 20 años que trabajo entre el negocio y la tecnología: entiendo cómo trabaja la gente, encuentro dónde se pierde el tiempo y diseño soluciones que después se usan de verdad." data-en="I am Patricio Ingratta. For more than 20 years I have worked between business and technology: I understand how people work, find where time is lost and design solutions that people actually use.">Soy Patricio Ingratta. Hace más de 20 años que trabajo entre el negocio y la tecnología: entiendo cómo trabaja la gente, encuentro dónde se pierde el tiempo y diseño soluciones que después se usan de verdad.</p><div class="facts"><div class="fact"><b>+20</b><span data-es="años en tecnología y procesos" data-en="years in technology and processes">años en tecnología y procesos</span></div><div class="fact"><b data-es="Producto + UX" data-en="Product + UX">Producto + UX</b><span data-es="soluciones pensadas para quien las usa" data-en="solutions designed for the people who use them">soluciones pensadas para quien las usa</span></div><div class="fact"><b data-es="Documentado" data-en="Documented">Documentado</b><span data-es="cada solución queda explicada y es tuya" data-en="every solution is explained and yours to keep">cada solución queda explicada y es tuya</span></div></div><div style="margin-top:25px"><a class="btn tonal" href="https://www.linkedin.com/in/patricio-ingratta/" target="_blank" rel="noopener" data-es="Ver perfil de LinkedIn" data-en="View LinkedIn profile">Ver perfil de LinkedIn</a></div></div></div></section>
+<section class="block security" id="seguridad"><div class="wrap reveal"><div class="sec-head"><h2 data-es="Automatizar sin perder el control." data-en="Automate without losing control.">Automatizar sin perder el control.</h2><p class="body-lg" data-es="La autonomía no siempre es el objetivo. En procesos sensibles, la solución debe ayudar a trabajar mejor manteniendo controles, trazabilidad y capacidad de revisión." data-en="Autonomy is not always the goal. In sensitive processes, the solution should help people work better while preserving controls, traceability and review.">La autonomía no siempre es el objetivo. En procesos sensibles, la solución debe ayudar a trabajar mejor manteniendo controles, trazabilidad y capacidad de revisión.</p></div><div class="security-grid"><div class="security-item"><h3 data-es="Revisión humana" data-en="Human review">Revisión humana</h3><p data-es="Las decisiones profesionales, fiscales, financieras o de negocio permanecen en manos de personas responsables." data-en="Professional, tax, financial and business decisions remain with accountable people.">Las decisiones profesionales, fiscales, financieras o de negocio permanecen en manos de personas responsables.</p></div><div class="security-item"><h3 data-es="Datos mínimos y separados" data-en="Minimum, separated data">Datos mínimos y separados</h3><p data-es="Se utiliza sólo la información necesaria y se administran cuentas, accesos y datos por cliente." data-en="Only necessary information is used, with client-specific accounts, access and data separation.">Se utiliza sólo la información necesaria y se administran cuentas, accesos y datos por cliente.</p></div><div class="security-item"><h3 data-es="Pruebas controladas" data-en="Controlled testing">Pruebas controladas</h3><p data-es="Se comienza con copias, muestras o ambientes de prueba, preservando los documentos originales." data-en="Work begins with copies, samples or test environments while preserving original documents.">Se comienza con copias, muestras o ambientes de prueba, preservando los documentos originales.</p></div><div class="security-item"><h3 data-es="Trazabilidad y reversibilidad" data-en="Traceability and reversibility">Trazabilidad y reversibilidad</h3><p data-es="Las ejecuciones, errores y correcciones deben poder identificarse; las acciones sensibles deben poder detenerse o revertirse." data-en="Runs, errors and corrections should be identifiable, and sensitive actions should be stoppable or reversible.">Las ejecuciones, errores y correcciones deben poder identificarse; las acciones sensibles deben poder detenerse o revertirse.</p></div></div></div></section>
 
-<section class="block" id="faq"><div class="wrap reveal"><div class="sec-head"><span class="eyebrow">FAQ</span><h2 data-es="Preguntas antes de comenzar." data-en="Questions before starting.">Preguntas antes de comenzar.</h2></div><div class="faq">
+<section class="block" id="quien"><div class="wrap reveal about"><div><h2 data-es="Experiencia para conectar negocio, personas y tecnología." data-en="Experience connecting business, people and technology.">Experiencia para conectar negocio, personas y tecnología.</h2><img class="avatar" src="img/patricio.jpg" width="160" height="160" alt="Patricio Ingratta"></div><div><p class="body-lg" data-es="Soy Patricio Ingratta. Hace más de 20 años que trabajo entre el negocio y la tecnología: entiendo cómo trabaja la gente, encuentro dónde se pierde el tiempo y diseño soluciones que después se usan de verdad." data-en="I am Patricio Ingratta. For more than 20 years I have worked between business and technology: I understand how people work, find where time is lost and design solutions that people actually use.">Soy Patricio Ingratta. Hace más de 20 años que trabajo entre el negocio y la tecnología: entiendo cómo trabaja la gente, encuentro dónde se pierde el tiempo y diseño soluciones que después se usan de verdad.</p><div class="facts"><div class="fact"><b>+20</b><span data-es="años en tecnología y procesos" data-en="years in technology and processes">años en tecnología y procesos</span></div><div class="fact"><b data-es="Producto + UX" data-en="Product + UX">Producto + UX</b><span data-es="soluciones pensadas para quien las usa" data-en="solutions designed for the people who use them">soluciones pensadas para quien las usa</span></div><div class="fact"><b data-es="Documentado" data-en="Documented">Documentado</b><span data-es="cada solución queda explicada y es tuya" data-en="every solution is explained and yours to keep">cada solución queda explicada y es tuya</span></div></div><div style="margin-top:25px"><a class="btn tonal" href="https://www.linkedin.com/in/patricio-ingratta/" target="_blank" rel="noopener" data-es="Ver perfil de LinkedIn" data-en="View LinkedIn profile">Ver perfil de LinkedIn</a></div></div></div></section>
+
+<section class="block" id="faq"><div class="wrap reveal"><div class="sec-head"><h2 data-es="Preguntas antes de comenzar." data-en="Questions before starting.">Preguntas antes de comenzar.</h2></div><div class="faq">
 <details><summary data-es="¿La primera reunión tiene costo?" data-en="Is the first meeting free?">¿La primera reunión tiene costo?</summary><p data-es="No. Es una conversación exploratoria de 45 minutos para conocernos y evaluar si hay una necesidad en la que pueda ayudarte. No incluye diagnóstico ni recomendaciones específicas." data-en="No. It is a 45-minute exploratory conversation to assess fit. It does not include diagnosis or specific recommendations.">No. Es una conversación exploratoria de 45 minutos para conocernos y evaluar si hay una necesidad en la que pueda ayudarte. No incluye diagnóstico ni recomendaciones específicas.</p></details>
 <details><summary data-es="¿Qué diferencia hay entre la reunión inicial y el diagnóstico?" data-en="What is the difference between the intro call and the assessment?">¿Qué diferencia hay entre la reunión inicial y el diagnóstico?</summary><p data-es="La reunión inicial es general y sin entregables. El diagnóstico es pago, tiene límites definidos y produce un análisis del proceso, oportunidades priorizadas, riesgos y una propuesta de piloto. Si avanzás con el piloto, el diagnóstico no tiene cargo." data-en="The intro call is general and has no deliverables. The assessment is paid and bounded, producing process analysis, prioritised opportunities, risks and a pilot proposal. If you go ahead with the pilot, the assessment is free.">La reunión inicial es general y sin entregables. El diagnóstico es pago, tiene límites definidos y produce un análisis del proceso, oportunidades priorizadas, riesgos y una propuesta de piloto. Si avanzás con el piloto, el diagnóstico no tiene cargo.</p></details>
 <details><summary data-es="¿Todo se resuelve con inteligencia artificial?" data-en="Does everything require AI?">¿Todo se resuelve con inteligencia artificial?</summary><p data-es="No. Muchas mejoras se resuelven simplificando el proceso, usando reglas o conectando herramientas. La IA se incorpora cuando aporta valor frente a la variabilidad o ambigüedad de la información." data-en="No. Many improvements come from process simplification, rules or connected tools. AI is used when it adds value for variable or ambiguous information.">No. Muchas mejoras se resuelven simplificando el proceso, usando reglas o conectando herramientas. La IA se incorpora cuando aporta valor frente a la variabilidad o ambigüedad de la información.</p></details>
-<details><summary data-es="¿Quién paga las herramientas y el consumo de IA?" data-en="Who pays for tools and AI usage?">¿Quién paga las herramientas y el consumo de IA?</summary><p data-es="Se identifican por separado del servicio profesional. Cuando es posible, las cuentas productivas quedan a nombre del cliente y se define una franquicia o facturación por consumo." data-en="They are identified separately from professional fees. Where possible, production accounts belong to the client and usage is handled through an allowance or consumption billing.">Se identifican por separado del servicio profesional. Cuando es posible, las cuentas productivas quedan a nombre del cliente y se define una franquicia o facturación por consumo.</p></details>
-<details><summary data-es="¿El mantenimiento incluye nuevas funcionalidades?" data-en="Does maintenance include new features?">¿El mantenimiento incluye nuevas funcionalidades?</summary><p data-es="No de forma ilimitada. Puede incluir ajustes menores según el plan. Nuevos procesos, integraciones o funcionalidades se evalúan como una extensión o un nuevo diagnóstico." data-en="Not without limits. Minor adjustments may be included depending on the plan. New processes, integrations or features are assessed as an extension or a new assessment.">No de forma ilimitada. Puede incluir ajustes menores según el plan. Nuevos procesos, integraciones o funcionalidades se evalúan como una extensión o un nuevo diagnóstico.</p></details>
+<details><summary data-es="¿Quién paga las herramientas y el consumo de IA?" data-en="Who pays for tools and AI usage?">¿Quién paga las herramientas y el consumo de IA?</summary><p data-es="Están incluidas en el abono mensual de mantenimiento, dentro del volumen de uso acordado en la propuesta. No tenés que contratar ni pagar herramientas por separado." data-en="They are included in the monthly maintenance fee, within the usage volume agreed in the proposal. You do not need to sign up for or pay for tools separately.">Están incluidas en el abono mensual de mantenimiento, dentro del volumen de uso acordado en la propuesta. No tenés que contratar ni pagar herramientas por separado.</p></details>
+<details><summary data-es="¿El mantenimiento incluye nuevas funcionalidades?" data-en="Does maintenance include new features?">¿El mantenimiento incluye nuevas funcionalidades?</summary><p data-es="No. Incluye soporte, monitoreo, ajustes menores y las herramientas. Nuevos procesos, integraciones o funcionalidades se presupuestan como una extensión." data-en="No. It includes support, monitoring, minor adjustments and tools. New processes, integrations or features are quoted as an extension.">No. Incluye soporte, monitoreo, ajustes menores y las herramientas. Nuevos procesos, integraciones o funcionalidades se presupuestan como una extensión.</p></details>
 </div></div></section>
 
-<section class="contact" id="contacto"><div class="wrap contact-grid reveal"><div><span class="eyebrow" data-es="Empecemos" data-en="Let's start">Empecemos</span><h2 style="margin-top:12px" data-es="¿Qué tarea te está quitando tiempo?" data-en="Which task is taking your time?">¿Qué tarea te está quitando tiempo?</h2><p class="body-lg" data-es="Contame qué tarea te está quitando tiempo y coordinamos una primera charla." data-en="Tell me which task is taking your time and we will set up a first conversation.">Contame qué tarea te está quitando tiempo y coordinamos una primera charla.</p></div><div class="form-card"><h3 data-es="Contame qué te está quitando tiempo" data-en="Tell me what is taking your time">Contame qué te está quitando tiempo</h3><p class="hint" data-es="No envíes documentos ni información confidencial en este formulario." data-en="Do not send documents or confidential information through this form.">No envíes documentos ni información confidencial en este formulario.</p><form id="contact-form" novalidate><div class="form-row"><div class="field"><label for="name" data-es="Nombre" data-en="Name">Nombre</label><input id="name" name="name" required autocomplete="name"></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div></div><div class="field"><label for="company" data-es="Empresa o actividad" data-en="Company or activity">Empresa o actividad</label><input id="company" name="company" autocomplete="organization"></div><div class="field"><label for="message" data-es="¿Qué proceso o tarea te gustaría mejorar?" data-en="Which process or task would you like to improve?">¿Qué proceso o tarea te gustaría mejorar?</label><textarea id="message" name="message" required placeholder="Ej.: recibimos comprobantes por email y copiamos sus datos a una planilla."></textarea></div><div class="form-row"><div class="field"><label for="tools" data-es="Herramientas actuales (opcional)" data-en="Current tools (optional)">Herramientas actuales (opcional)</label><input id="tools" name="tools" placeholder="Excel, Outlook, Google Drive..."></div><div class="field"><label for="volume" data-es="Volumen aproximado (opcional)" data-en="Approximate volume (optional)">Volumen aproximado (opcional)</label><input id="volume" name="volume" placeholder="Ej.: 150 documentos/mes"></div></div><label class="check"><input id="privacy" type="checkbox" required><span data-es="Acepto que mis datos sean utilizados exclusivamente para responder esta consulta, según la política de privacidad." data-en="I agree that my data may be used solely to respond to this enquiry, in accordance with the privacy policy.">Acepto que mis datos sean utilizados exclusivamente para responder esta consulta, según la política de privacidad.</span></label><input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="lang" id="form-lang" value="es"><button class="btn primary" id="submit" type="submit"><span data-es="Enviar consulta" data-en="Send enquiry">Enviar consulta</span> →</button><div class="status" id="status" role="status" aria-live="polite"></div><p class="micro"><span data-es="Te respondo dentro de un día hábil para coordinar una charla de 45 minutos." data-en="I reply within one business day to arrange a 45-minute call.">Te respondo dentro de un día hábil para coordinar una charla de 45 minutos.</span> <a href="consultoria-privacidad.html" target="_blank" rel="noopener" data-es="Política de privacidad" data-en="Privacy policy">Política de privacidad</a></p></form></div></div></section>
+<section class="contact" id="contacto"><div class="wrap contact-grid reveal"><div><h2 data-es="¿Qué tarea te está quitando tiempo?" data-en="Which task is taking your time?">¿Qué tarea te está quitando tiempo?</h2><p class="body-lg" data-es="Contame qué tarea te está quitando tiempo y coordinamos una primera charla." data-en="Tell me which task is taking your time and we will set up a first conversation.">Contame qué tarea te está quitando tiempo y coordinamos una primera charla.</p></div><div class="form-card"><h3 data-es="Contame qué te está quitando tiempo" data-en="Tell me what is taking your time">Contame qué te está quitando tiempo</h3><p class="hint" data-es="No envíes documentos ni información confidencial en este formulario." data-en="Do not send documents or confidential information through this form.">No envíes documentos ni información confidencial en este formulario.</p><form id="contact-form" novalidate><div class="form-row"><div class="field"><label for="name" data-es="Nombre" data-en="Name">Nombre</label><input id="name" name="name" required autocomplete="name"></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div></div><div class="field"><label for="company" data-es="Empresa o actividad" data-en="Company or activity">Empresa o actividad</label><input id="company" name="company" autocomplete="organization"></div><div class="field"><label for="message" data-es="¿Qué proceso o tarea te gustaría mejorar?" data-en="Which process or task would you like to improve?">¿Qué proceso o tarea te gustaría mejorar?</label><textarea id="message" name="message" required placeholder="Ej.: recibimos comprobantes por email y copiamos sus datos a una planilla."></textarea></div><div class="form-row"><div class="field"><label for="tools" data-es="Herramientas actuales (opcional)" data-en="Current tools (optional)">Herramientas actuales (opcional)</label><input id="tools" name="tools" placeholder="Excel, Outlook, Google Drive..."></div><div class="field"><label for="volume" data-es="Volumen aproximado (opcional)" data-en="Approximate volume (optional)">Volumen aproximado (opcional)</label><input id="volume" name="volume" placeholder="Ej.: 150 documentos/mes"></div></div><label class="check"><input id="privacy" type="checkbox" required><span data-es="Acepto que mis datos sean utilizados exclusivamente para responder esta consulta, según la política de privacidad." data-en="I agree that my data may be used solely to respond to this enquiry, in accordance with the privacy policy.">Acepto que mis datos sean utilizados exclusivamente para responder esta consulta, según la política de privacidad.</span></label><input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="lang" id="form-lang" value="es"><button class="btn primary" id="submit" type="submit"><span data-es="Enviar consulta" data-en="Send enquiry">Enviar consulta</span></button><div class="status" id="status" role="status" aria-live="polite"></div><p class="micro"><span data-es="Te respondo dentro de un día hábil para coordinar una charla de 45 minutos." data-en="I reply within one business day to arrange a 45-minute call.">Te respondo dentro de un día hábil para coordinar una charla de 45 minutos.</span> <a href="consultoria-privacidad.html" target="_blank" rel="noopener" data-es="Política de privacidad" data-en="Privacy policy">Política de privacidad</a></p></form></div></div></section>
 </main>
-<footer><div class="wrap foot"><span>ConsultorIA · Patricio Ingratta</span><span data-es="Automatización e IA para profesionales y PyMEs." data-en="Automation and AI for professionals and small businesses.">Automatización e IA para profesionales y PyMEs.</span><span>© <span id="year"></span> · Buenos Aires, Argentina</span></div></footer>
+<footer><div class="wrap foot"><span>Patricio Ingratta</span><span data-es="Automatización e IA para profesionales y PyMEs." data-en="Automation and AI for professionals and small businesses.">Automatización e IA para profesionales y PyMEs.</span><span>© <span id="year"></span> · Buenos Aires, Argentina</span></div></footer>
 <script>
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 $('#year').textContent=new Date().getFullYear();
@@ -270,6 +376,6 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 let lang='es',statusState=null;function renderStatus(){const st=$('#status');if(!statusState)return;st.className='status '+statusState;st.textContent=statusState==='ok'?(lang==='es'?'Listo. Recibí tu consulta y te respondo dentro de un día hábil.':'Got it. I received your enquiry and will reply within one business day.'):(lang==='es'?'No se pudo enviar. Intentá nuevamente o contactame por LinkedIn.':'Could not send. Please try again or contact me on LinkedIn.')}function applyLang(next){lang=next;document.documentElement.lang=lang==='es'?'es-AR':'en';document.documentElement.dataset.lang=lang;$$('[data-es]').forEach(e=>e.textContent=e.dataset[lang]);$('#lang').textContent=lang==='es'?'EN':'ES';$('#form-lang').value=lang;$('#message').placeholder=lang==='es'?'Ej.: recibimos comprobantes por email y copiamos sus datos a una planilla.':'e.g. we receive documents by email and copy their data into a spreadsheet.';$('#volume').placeholder=lang==='es'?'Ej.: 150 documentos/mes':'e.g. 150 documents/month';document.title=lang==='es'?'Automatización e IA para profesionales y PyMEs | Patricio Ingratta':'Automation and AI for professionals and small businesses | Patricio Ingratta';renderStatus()}$('#lang').addEventListener('click',()=>applyLang(lang==='es'?'en':'es'));
 const FORM_ENDPOINT='https://api.web3forms.com/submit';
 const ACCESS_KEY='1ccfb070-0719-44fd-84bc-0dfc696a8a1e';
-$('#contact-form').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget,st=$('#status'),btn=$('#submit');if(!f.reportValidity())return;statusState=null;st.className='status';st.textContent='';btn.disabled=true;const data=Object.fromEntries(new FormData(f));data.access_key=ACCESS_KEY;data.subject='[ConsultorIA] '+data.name;data.page=location.href;try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw Error();statusState='ok';f.reset();$('#form-lang').value=lang}catch(err){statusState='bad'}finally{btn.disabled=false;renderStatus()}});
+$('#contact-form').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget,st=$('#status'),btn=$('#submit');if(!f.reportValidity())return;statusState=null;st.className='status';st.textContent='';btn.disabled=true;const data=Object.fromEntries(new FormData(f));data.access_key=ACCESS_KEY;data.subject='[Consulta web] '+data.name;data.page=location.href;try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw Error();statusState='ok';f.reset();$('#form-lang').value=lang}catch(err){statusState='bad'}finally{btn.disabled=false;renderStatus()}});
 </script>
 </body></html>
