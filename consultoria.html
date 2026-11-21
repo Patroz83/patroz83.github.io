@@ -123,14 +123,6 @@ nav a:hover{color:var(--ink);background:var(--mint)}
 .usecase{padding:11px 0;display:flex;gap:10px;font-size:16px;color:var(--muted);border-bottom:1px dashed var(--line2)}
 .usecase b{color:var(--green)}
 
-/* ejemplo */
-.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-.example-item{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.example-item.after{border-color:var(--green);box-shadow:inset 0 4px 0 var(--green)}
-.example-item p{margin:10px 0 0;color:var(--muted);font-size:16px}
-.example-item.after mark{background:linear-gradient(transparent 12%,var(--mark) 12%,var(--mark) 88%,transparent 88%);color:var(--ink);padding:0 2px}
-.example-note{margin-top:16px;font-size:14px;color:var(--muted)}
-
 /* cómo trabajo: secuencia real */
 .inverse{background:var(--mint)}
 .journey{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.5vw,32px);position:relative}
@@ -225,32 +217,6 @@ footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
 .io-tr.flag{background:var(--mark)}
 .io-tr.flag .io-st{color:var(--ink);font-weight:700}
 .io-who{display:flex;align-items:center;gap:10px;margin:auto 0 0;font-size:15px;line-height:1.45}
-/* antes / después */
-.kicker{margin:0;font-size:15px;color:var(--muted)}
-.ba{display:grid;gap:14px;margin-top:32px}
-.ba-row{display:flex;align-items:center;gap:14px}
-.ba-l{width:104px;flex-shrink:0;margin:0}
-.ba-l.after{color:var(--green)}
-.ba-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:6px;flex-grow:1;min-width:0}
-.ba-p{flex:1 1 0;min-height:88px;box-sizing:border-box;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;font-size:15px;line-height:1.3}
-.ba-p.man{background:var(--sheet);border:1px solid var(--line2)}
-.ba-p.auto{background:var(--green);color:#fff}
-.ba-p.human{flex-grow:2;background:var(--mark);font-weight:600}
-.ba-chev{color:var(--line2);display:flex;flex-shrink:0}
-.ba-row:nth-child(2) .ba-chev{color:var(--green)}
-.ba-sum{width:140px;flex-shrink:0;margin:0;font-size:15px;line-height:1.35;color:var(--muted)}
-.ba-sum b{display:block;color:var(--ink)}
-.ba-key{list-style:none;margin:4px 0 0 118px;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted)}
-.ba-key li{display:flex;align-items:center;gap:8px}
-.ba-key i{width:14px;height:14px;border-radius:4px}
-.k-auto{background:var(--green)}.k-human{background:var(--mark)}.k-man{background:var(--sheet);border:1px solid var(--line2)}
-.ba-measure{margin-top:36px;padding-top:24px;border-top:2px solid var(--ink)}
-.ba-ms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-.ba-m{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:16px;align-items:flex-start}
-.ba-mi{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center}
-.ba-mi.hl{background:var(--mark)}
-.ba-m b{font-size:18px;font-weight:650}
-.ba-m p{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--muted)}
 /* mantenimiento */
 .maint{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
 .maint .body-lg{margin-top:20px}
@@ -275,17 +241,6 @@ footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
 .mno b{font-size:15px;font-weight:650}
 .mno p{margin:4px 0 0;font-size:15px;color:var(--muted)}
 
-/* ejemplo antes/después: animación tranquila */
-.ba-p{transition:none}
-.ba-p.man{animation:ba-slow 7.5s ease-in-out infinite}
-.ba-p.man:nth-of-type(2){animation-delay:1.5s}.ba-p.man:nth-of-type(3){animation-delay:3s}.ba-p.man:nth-of-type(4){animation-delay:4.5s}.ba-p.man:nth-of-type(5){animation-delay:6s}
-@keyframes ba-slow{0%,22%,100%{transform:none;box-shadow:none;border-color:var(--line2)}5%,17%{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 8px 18px -12px rgba(20,36,32,.5)}}
-.ba-p.auto{animation:ba-quick 2.5s ease-in-out infinite}
-.ba-p.auto:nth-of-type(2){animation-delay:.45s}.ba-p.auto:nth-of-type(3){animation-delay:.9s}
-@keyframes ba-quick{0%,27%,100%{transform:none;box-shadow:none}6%,18%{transform:translateY(-3px);box-shadow:0 8px 18px -10px rgba(11,107,87,.7)}}
-.ba-p.human{animation:ba-human 2.5s ease-in-out 1.35s infinite}
-@keyframes ba-human{0%,40%,100%{transform:none;box-shadow:0 0 0 0 rgba(244,220,107,0)}8%,32%{transform:translateY(-3px);box-shadow:0 0 0 7px rgba(244,220,107,.45)}}
-@media(prefers-reduced-motion:reduce){.ba-p{animation:none!important}}
 /* diagramas animados: comunes */
 .dd-flow{fill:none;stroke:var(--line2);stroke-width:2;stroke-dasharray:4 8;animation:dd-march .5s linear infinite}
 .dd-flow.dd-out{stroke:var(--green)}
@@ -369,13 +324,7 @@ footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
 @media(max-width:970px){
 .io{flex-direction:column}
 .io-arrow{justify-content:center;transform:rotate(90deg)}
-.ba-row{flex-direction:column;align-items:stretch}
-.ba-l,.ba-sum{width:auto}
-.ba-steps{flex-direction:column;align-items:stretch}
-.ba-chev{transform:rotate(90deg);justify-content:center}
-.ba-p{min-height:52px;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
-.ba-key{margin-left:0}
-.ba-ms,.maint{grid-template-columns:1fr}
+.maint{grid-template-columns:1fr}
 }
 
 @media(max-width:970px){
@@ -385,7 +334,7 @@ footer{padding:24px 0;background:var(--ink);border-top:1px solid #2A3C37}
 .journey{grid-template-columns:1fr 1fr;row-gap:32px}
 .journey::before{display:none}
 .card.feature{grid-template-columns:1fr}
-.security-grid,.example-grid{grid-template-columns:1fr}
+.security-grid{grid-template-columns:1fr}
 nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);padding:10px var(--pad) 16px;border-bottom:1px solid var(--line)}
 nav.open{display:flex}
 nav a{padding:13px 8px;font-size:16px}
@@ -500,11 +449,6 @@ nav a{padding:13px 8px;font-size:16px}
 <article class="card svc-plain"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg><div><h3 data-es="Capacitación" data-en="Training">Capacitación</h3><p data-es="Talleres cortos para que tu equipo use IA en sus tareas de todos los días: redactar, resumir, buscar en documentos y revisar resultados con criterio." data-en="Short workshops so your team can use AI in everyday tasks: drafting, summarising, searching documents and reviewing results with judgement.">Talleres cortos para que tu equipo use IA en sus tareas de todos los días: redactar, resumir, buscar en documentos y revisar resultados con criterio.</p></div></article>
 <article class="card svc-plain"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B6B57" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.6 7.6a5.5 5.5 0 1 1-7.8 7.8 5.5 5.5 0 0 1 7.8-7.8zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg><div><h3 data-es="Todo queda en tus manos" data-en="Everything stays with you">Todo queda en tus manos</h3><p data-es="Al cerrar cada etapa te entrego, documentadas, las instrucciones, reglas y configuraciones que armamos para tu negocio. Lo que aprendimos de tu proceso queda con vos, para que lo puedas usar a futuro." data-en="At the end of each stage I hand over, documented, the instructions, rules and settings we built for your business. What we learned about your process stays with you, so you can use it in the future.">Al cerrar cada etapa te entrego, documentadas, las instrucciones, reglas y configuraciones que armamos para tu negocio. Lo que aprendimos de tu proceso queda con vos, para que lo puedas usar a futuro.</p></div></article></div>
 
-</div></section>
-
-<section class="block" id="ejemplo"><div class="wrap reveal"><div class="sec-head"><p class="kicker" data-es="Ejemplo ilustrativo" data-en="Illustrative example">Ejemplo ilustrativo</p><h2 data-es="Comprobantes que llegan por email." data-en="Invoices arriving by email.">Comprobantes que llegan por email.</h2></div>
-<div class="ba"><div class="ba-row"><h3 class="ba-l" data-es="Antes" data-en="Before">Antes</h3><ol class="ba-steps"><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Abrir cada email" data-en="Open each email">Abrir cada email</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Descargar el PDF" data-en="Download the PDF">Descargar el PDF</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Copiar CUIT, fecha e importe" data-en="Copy tax ID, date and amount">Copiar CUIT, fecha e importe</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Pegar en la planilla" data-en="Paste into the spreadsheet">Pegar en la planilla</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p man"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E5F59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Revisar todo a ojo" data-en="Check everything by eye">Revisar todo a ojo</span></li></ol><p class="ba-sum"><b data-es="5 pasos" data-en="5 steps">5 pasos</b> <span data-es="a mano, por cada comprobante" data-en="by hand, for every invoice">a mano, por cada comprobante</span></p></div><div class="ba-row"><h3 class="ba-l after" data-es="Después" data-en="After">Después</h3><ol class="ba-steps"><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3z"/></svg><span data-es="Se guarda solo en una carpeta" data-en="Saved to a folder automatically">Se guarda solo en una carpeta</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/></svg><span data-es="Se extraen los datos" data-en="Data is extracted">Se extraen los datos</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-es="Se marcan los dudosos" data-en="Doubtful ones are flagged">Se marcan los dudosos</span></li><span class="ba-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span><li class="ba-p human"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#142420" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-es="Revisás solo los marcados y aprobás" data-en="You review only the flagged ones and approve">Revisás solo los marcados y aprobás</span></li></ol><p class="ba-sum"><b data-es="1 paso" data-en="1 step">1 paso</b> <span data-es="a mano, solo en los dudosos" data-en="by hand, only on doubtful ones">a mano, solo en los dudosos</span></p></div><ul class="ba-key"><li><i class="k-auto"></i><span data-es="Automático" data-en="Automatic">Automático</span></li><li><i class="k-human"></i><span data-es="Lo hacés vos, con criterio" data-en="You do it, with judgement">Lo hacés vos, con criterio</span></li><li><i class="k-man"></i><span data-es="Trabajo manual repetitivo" data-en="Repetitive manual work">Trabajo manual repetitivo</span></li></ul></div>
-<p class="example-note" data-es="Ejemplo con fines ilustrativos. Los resultados dependen de cada proceso." data-en="Illustrative example. Results depend on each process.">Ejemplo con fines ilustrativos. Los resultados dependen de cada proceso.</p>
 </div></section>
 
 <section class="block inverse" id="como"><div class="wrap reveal"><div class="sec-head"><h2 data-es="Cuatro etapas, con decisiones claras en cada una." data-en="Four stages, with clear decisions at each one.">Cuatro etapas, con decisiones claras en cada una.</h2><p class="body-lg" data-es="Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir." data-en="We move one stage at a time. At each one you know what you will get and decide whether to continue.">Avanzamos de a una etapa. En cada una sabés qué vas a recibir y decidís si seguir.</p></div>
